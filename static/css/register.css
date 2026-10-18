@@ -1,0 +1,93 @@
+/* Den gesamten Bildschirm füllen und zentrieren */
+.login-body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center; /* Horizontal zentrieren */
+    align-items: center;     /* Vertikal zentrieren */
+    background-color: #f0f2f5;
+    font-family: Arial, sans-serif;
+}
+/* Der weiße Kasten um die Form */
+.login-container {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 350px;
+}
+/* Elemente untereinander stapeln */
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Abstand zwischen den Boxen */
+}
+h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 10px;
+}
+/* Styling für die Input-Boxen */
+input {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+/* Styling für den Button */
+button {
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+button:hover {
+    background-color: #0056b3;
+}
+/* Styling für die Links */
+.nav-link {
+    text-decoration: none;
+    color: #fff;
+}
+
+/* CSS für die Positionierung des Auges im Eingabefeld */
+.password-wrapper {
+    position: relative;
+    width: 100%;
+    margin-bottom: 15px;
+}
+.password-wrapper input {
+    width: 100%;
+    padding: 8px 40px 8px 12px; /* Platz für das Auge rechts lassen */
+    box-sizing: border-box;
+}
+.toggle-password {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #6c757d;
+    z-index: 10;
+}
+/* Styling für die Passwort-Stärke-Anzeige */
+.strength-meter {
+    height: 5px;
+    width: 100%;
+    background-color: #e0e0e0;
+    margin-top: -10px;
+    margin-bottom: 15px;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+/* Visuelles Feedback für den deaktivierten Button */
+button:disabled {
+    background-color: #6c757d !important;
+    opacity: 0.6;
+    cursor: not-allowed;
+}

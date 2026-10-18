@@ -1,0 +1,303 @@
+{
+  "skill_profile": {
+    "skills": [
+      {
+        "name": "Python",
+        "category": "Programmiersprache",
+        "level": 85,
+        "confidence": 75,
+        "sources": [
+          "challenge_result",
+          "github",
+          "learning_progress",
+          "project",
+          "skill_test"
+        ],
+        "evidence": [
+          {
+            "source_type": "skill_test",
+            "detail": "Skill‑Test Ergebnis: 82 Punkte"
+          },
+          {
+            "source_type": "challenge_result",
+            "detail": "Challenge‑Ergebnis: 78 Punkte"
+          },
+          {
+            "source_type": "learning_progress",
+            "detail": "Lernfortschritt: 80 %"
+          },
+          {
+            "source_type": "project",
+            "detail": "Projekt „AI Chatbot“ – verwendet Python"
+          },
+          {
+            "source_type": "project",
+            "detail": "Projekt „Flask Dashboard“ – verwendet Python"
+          },
+          {
+            "source_type": "github",
+            "detail": "Repository „ai-chatbot“ (Python) auf GitHub"
+          },
+          {
+            "source_type": "github",
+            "detail": "Repository „flask-dashboard\" (Python) auf GitHub"
+          }
+        ],
+        "justification": "Level und Confidence wurden aus den vorhandenen Nachweisen berechnet."
+      },
+      {
+        "name": "Git",
+        "category": "Versionskontrolle",
+        "level": 67,
+        "confidence": 65,
+        "sources": [
+          "learning_progress",
+          "project",
+          "skill_test"
+        ],
+        "evidence": [
+          {
+            "source_type": "skill_test",
+            "detail": "Skill‑Test Ergebnis: 68 Punkte"
+          },
+          {
+            "source_type": "learning_progress",
+            "detail": "Lernfortschritt: 65 %"
+          },
+          {
+            "source_type": "project",
+            "detail": "Projekt „AI Chatbot“ – verwendet Git"
+          }
+        ],
+        "justification": "Level und Confidence wurden aus den vorhandenen Nachweisen berechnet."
+      },
+      {
+        "name": "JavaScript",
+        "category": "Programmiersprache",
+        "level": 43,
+        "confidence": 32,
+        "sources": [
+          "github",
+          "self_report"
+        ],
+        "evidence": [
+          {
+            "source_type": "github",
+            "detail": "Repository „web-project\" (JavaScript) auf GitHub"
+          },
+          {
+            "source_type": "self_report",
+            "detail": "Selbst eingeschätztes Niveau: 40 %"
+          }
+        ],
+        "justification": "Level und Confidence wurden aus den vorhandenen Nachweisen berechnet."
+      },
+      {
+        "name": "Flask",
+        "category": "Web‑Framework",
+        "level": 45,
+        "confidence": 50,
+        "sources": [
+          "github",
+          "project"
+        ],
+        "evidence": [
+          {
+            "source_type": "project",
+            "detail": "Projekt „Flask Dashboard\" – verwendet Flask"
+          },
+          {
+            "source_type": "github",
+            "detail": "Repository „flask-dashboard\" (Python) – Beschreibung erwähnt Flask"
+          }
+        ],
+        "justification": "Level und Confidence wurden aus den vorhandenen Nachweisen berechnet."
+      },
+      {
+        "name": "HTML",
+        "category": "Markup‑Sprache",
+        "level": 40,
+        "confidence": 50,
+        "sources": [
+          "project"
+        ],
+        "evidence": [
+          {
+            "source_type": "project",
+            "detail": "Projekt „Flask Dashboard\" – verwendet HTML"
+          }
+        ],
+        "justification": "Level und Confidence wurden aus den vorhandenen Nachweisen berechnet."
+      },
+      {
+        "name": "CSS",
+        "category": "Stylesheet‑Sprache",
+        "level": 40,
+        "confidence": 50,
+        "sources": [
+          "project"
+        ],
+        "evidence": [
+          {
+            "source_type": "project",
+            "detail": "Projekt „Flask Dashboard\" – verwendet CSS"
+          }
+        ],
+        "justification": "Level und Confidence wurden aus den vorhandenen Nachweisen berechnet."
+      }
+    ]
+  },
+  "skill_graph": {
+    "nodes": [
+      {
+        "skill": "Python",
+        "category": "Programmiersprache"
+      },
+      {
+        "skill": "Git",
+        "category": "Versionskontrolle"
+      },
+      {
+        "skill": "JavaScript",
+        "category": "Programmiersprache"
+      },
+      {
+        "skill": "Flask",
+        "category": "Web‑Framework"
+      },
+      {
+        "skill": "HTML",
+        "category": "Markup‑Sprache"
+      },
+      {
+        "skill": "CSS",
+        "category": "Stylesheet‑Sprache"
+      },
+      {
+        "skill": "Statistics",
+        "category": "Target Skill"
+      },
+      {
+        "skill": "Machine Learning",
+        "category": "Target Skill"
+      },
+      {
+        "skill": "Deep Learning",
+        "category": "Target Skill"
+      },
+      {
+        "skill": "Cloud Deployment",
+        "category": "Target Skill"
+      },
+      {
+        "skill": "Model Evaluation",
+        "category": "Target Skill"
+      }
+    ],
+    "edges": [
+      {
+        "from_skill": "Python",
+        "to_skill": "Flask",
+        "relationship": "prerequisite",
+        "reason": "Flask ist ein Web‑Framework, das in Python geschrieben ist."
+      },
+      {
+        "from_skill": "HTML",
+        "to_skill": "CSS",
+        "relationship": "related",
+        "reason": "HTML und CSS werden gemeinsam für die Gestaltung von Webseiten eingesetzt."
+      },
+      {
+        "from_skill": "JavaScript",
+        "to_skill": "HTML",
+        "relationship": "related",
+        "reason": "JavaScript ergänzt HTML, um interaktive Webinhalte zu erzeugen."
+      }
+    ]
+  },
+  "strengths": [
+    {
+      "skill_or_area": "Python",
+      "reason": "Mehrere unabhängige Evidenzen (Skill‑Tests, Challenge, Lernfortschritt, Projekte und GitHub‑Repos) belegen fundierte Kenntnisse.",
+      "evidence": [
+        "Skill‑Test 82 Punkte",
+        "Challenge‑Ergebnis 78 Punkte",
+        "Projekt AI Chatbot",
+        "Projekt Flask Dashboard",
+        "GitHub‑Repositories"
+      ]
+    },
+    {
+      "skill_or_area": "Git",
+      "reason": "Skill‑Test, Lernfortschritt und Projekt‑Einsatz zeigen solide Praxis.",
+      "evidence": [
+        "Skill‑Test 68 Punkte",
+        "Lernfortschritt 65 %",
+        "Projekt AI Chatbot"
+      ]
+    },
+    {
+      "skill_or_area": "Flask",
+      "reason": "Projektbezogene Nutzung in einem eigenen Dashboard beweist praktische Erfahrung.",
+      "evidence": [
+        "Projekt Flask Dashboard",
+        "GitHub‑Repository flask-dashboard"
+      ]
+    }
+  ],
+  "missing_skills": [
+    {
+      "skill": "Machine Learning",
+      "status": "not_verified",
+      "importance": 25,
+      "reason": "Für dieses Skill liegen derzeit keine ausreichenden Nachweise vor.",
+      "evidence_gap": "Keine verifizierbare Evidenz vorhanden."
+    },
+    {
+      "skill": "Deep Learning",
+      "status": "not_verified",
+      "importance": 20,
+      "reason": "Für dieses Skill liegen derzeit keine ausreichenden Nachweise vor.",
+      "evidence_gap": "Keine verifizierbare Evidenz vorhanden."
+    },
+    {
+      "skill": "Statistics",
+      "status": "not_verified",
+      "importance": 15,
+      "reason": "Für dieses Skill liegen derzeit keine ausreichenden Nachweise vor.",
+      "evidence_gap": "Keine verifizierbare Evidenz vorhanden."
+    },
+    {
+      "skill": "Cloud Deployment",
+      "status": "not_verified",
+      "importance": 10,
+      "reason": "Für dieses Skill liegen derzeit keine ausreichenden Nachweise vor.",
+      "evidence_gap": "Keine verifizierbare Evidenz vorhanden."
+    },
+    {
+      "skill": "Model Evaluation",
+      "status": "not_verified",
+      "importance": 5,
+      "reason": "Für dieses Skill liegen derzeit keine ausreichenden Nachweise vor.",
+      "evidence_gap": "Keine verifizierbare Evidenz vorhanden."
+    }
+  ],
+  "job_match": 23,
+  "profile_improvements": [
+    {
+      "information_needed": "Detailliertere Beschreibungen der Praktikumstätigkeit (verwendete Technologien, konkrete Aufgaben).",
+      "why_it_matters": "Ermöglicht die Zuordnung weiterer technischer Fähigkeiten und stärkt das Gesamtprofil.",
+      "best_way_to_add_it": "Im Abschnitt Arbeitserfahrung ergänzen, mit Fokus auf genutzte Tools und Ergebnisse."
+    },
+    {
+      "information_needed": "Zertifikate oder formale Abschlüsse im Bereich Machine Learning oder KI.",
+      "why_it_matters": "Bestätigt Fachwissen und erhöht die Glaubwürdigkeit für das angestrebte Berufsziel AI Engineer.",
+      "best_way_to_add_it": "Im Bereich Zertifikate hochladen oder verlinken."
+    },
+    {
+      "information_needed": "Ergebnisse weiterer Skill‑Tests (z. B. für Machine Learning, Data Science).",
+      "why_it_matters": "Erweitert die Evidenzbasis für zukünftige KI‑bezogene Fähigkeiten.",
+      "best_way_to_add_it": "Skill‑Tests durchführen und die Resultate im entsprechenden Feld eintragen."
+    }
+  ]
+}

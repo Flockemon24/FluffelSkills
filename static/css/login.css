@@ -1,0 +1,56 @@
+/* Den gesamten Bildschirm füllen und zentrieren */
+.login-body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center; /* Horizontal zentrieren */
+    align-items: center;     /* Vertikal zentrieren */
+    background-color: #f0f2f5;
+    font-family: Arial, sans-serif;
+}
+/* Der weiße Kasten um die Form */
+.login-container {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 350px;
+}
+/* Elemente untereinander stapeln */
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Abstand zwischen den Boxen */
+}
+h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 10px;
+}
+/* Styling für die Input-Boxen */
+input {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+/* Styling für den Button */
+button {
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+button:hover {
+    background-color: #0056b3;
+}
+/* Styling für die Links */
+.nav-link {
+    text-decoration: none;
+    color: #fff;
+}

@@ -1,0 +1,115 @@
+/* Den gesamten Bildschirm füllen und zentrieren */
+.onboarding-body {
+    margin: 0;
+    padding: 0;
+    min-height: calc(100vh - 56px); /* Abzug der Navbar-Höhe */
+    display: flex;
+    justify-content: center; /* Horizontal zentrieren */
+    align-items: center;     /* Vertikal zentrieren */
+    background-color: #f0f2f5;
+    font-family: Arial, sans-serif;
+    padding-bottom: 40px;
+}
+/* Der weiße Kasten um die Form */
+.onboarding-container {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 450px;
+}
+/* Elemente untereinander stapeln */
+.onboarding-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Abstand zwischen den Boxen */
+}
+h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 5px;
+}
+/* Styling für die Input-Boxen */
+input, select {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    width: 100%;
+}
+/* Button Styling */
+button {
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    flex: 1;
+}
+.btn-next { background-color: #007bff; color: white; }
+.btn-next:hover { background-color: #0056b3; }
+.btn-prev { background-color: #6c757d; color: white; }
+.btn-prev:hover { background-color: #5a6268; }
+.btn-container {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+/* --- STEPPER STYLES --- */
+.stepper-wrapper {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    position: relative;
+    width: 100%;
+}
+.stepper-item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+}
+.stepper-item::after {
+    position: absolute;
+    content: "";
+    border-bottom: 3px solid #ccc;
+    width: 100%;
+    top: 15px;
+    left: 50%;
+    z-index: 1;
+}
+.stepper-item:last-child::after { content: none; }
+.stepper-item .step-counter {
+    position: relative;
+    z-index: 5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #ccc;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+}
+/* Blau-Färbung für aktive und fertige Schritte */
+.stepper-item.active .step-counter,
+.stepper-item.completed .step-counter {
+    background-color: #007bff;
+}
+.stepper-item.completed::after {
+    border-bottom-color: #007bff;
+}
+/* Schritte standardmäßig ausblenden */
+.form-step {
+    display: none;
+}
+/* Nur den aktiven Schritt anzeigen */
+.form-step.active {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}

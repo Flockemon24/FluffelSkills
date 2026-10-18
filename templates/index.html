@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="{{ current_language }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FluffelSkills - {{ _('Dashboard') }}</title>
+    <link rel="stylesheet" href="../static/css/dashboard.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<body>
+    <div class="dashboard-scanline"></div>
+
+    <nav class="navbar navbar-expand-lg dashboard-navbar fixed-top">
+        <div class="container">
+            <a class="navbar-brand dashboard-brand" href="{{ url_for('dashboard') }}">
+                <img src="../static/images/icon.png" alt="Logo" width="45" height="45">
+                FLUFFELSKILLS
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#dashboardNavbar" aria-controls="dashboardNavbar" aria-label="{{ _('Open navigation') }}">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="dashboardNavbar">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link dashboard-nav-link active" href="{{ url_for('dashboard') }}">{{ _('Dashboard') }}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link dashboard-nav-link" href="{{ url_for('roadmap') }}">Learning</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link dashboard-nav-link" href="{{ url_for('profile') }}">{{ _('Profile') }}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link dashboard-nav-link" href="{{ url_for('logout') }}">{{ _('Log out') }}</a>
+                    </li>
+                </ul>
+                {% include '_language_switcher.html' %}
+            </div>
+        </div>
+    </nav>
+
+    <section class="missing-skills">
+        <div class="container">
+            <h1 class="greeting-text">{{ _('Welcome back, %(name)s!', name=name) }}</h1>
+            <h3 class="text text-job">{{ _('Your dream job: %(job)s', job=goal_job) }}</h3>
+            
+            <h4 class="text text-headline">{{ _('Missing skills for your goal:') }}</h4>
+            
+            <div class="row">
+                {% for missing in current_user.ai_analysis.raw_analysis_data.missing_skills %}
+                    <div class="col-md-4">
+                        <div class="missing-skill-card">
+                            <h3 class="missing-skill-title">
+                                {{ missing.skill }}
+                            </h3>
+                            <p class="missing-skill-text">
+                                <span>{{ missing.reason }}</span>
+                                <small>{{ _('Gap:') }} {{ missing.evidence_gap }}</small>
+                            </p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+        <!-- Das versteckte Modal-Fenster -->
+    <div id="earlyBirdModal" class="modal-overlay" hidden>
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal()">&times;</span>
+            <div class="modal-icon">🚀</div>
+            <h2>{{ _('Wow, thanks for your interest!') }}</h2>
+            <p>{{ _('We are currently preparing our premium system to deliver the best possible AI analyses.') }}</p>
+            <p class="highlight-text">{{ _('As one of our first users, you have been added automatically to the') }} <strong>{{ _('Early Bird waiting list') }}</strong>!</p>
+            <p>{{ _('As soon as payments are enabled, you will receive the first month completely free. We will inform you by email.') }}</p>
+            <button class="modal-btn" onclick="closeModal()">{{ _('Got it, thanks!') }}</button>
+        </div>
+    </div>
+
+    <script src="../static/javascript/dashboard.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,203 @@
+﻿<!DOCTYPE html>
+<html lang="{{ current_language }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FluffelSkills - {{ _('Your digital skill pass') }}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/homepage.css">
+</head>
+<body>
+    <div class="bg-animation"></div>
+    <div class="particles">
+        <div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div>
+        <div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div>
+    </div>
+    <div class="scanline"></div>
+
+    <nav class="navbar navbar-expand-lg navbar-custom fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="../static/images/icon.png" alt="Logo" width="45" height="45" class="d-inline-block align-text-top">
+                FLUFFELSKILLS
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link nav-link-custom" href="{{ url_for('pricing') }}">{{ _('Pricing') }}</a></li>
+                    <li class="nav-item"><a class="nav-link nav-link-custom" href="{{ url_for('login') }}">{{ _('Login') }}</a></li>
+                    <li class="nav-item"><a class="nav-link nav-link-custom" href="{{ url_for('register') }}">{{ _('Register') }}</a></li>
+                    <li class="nav-item">{% include '_language_switcher.html' %}</li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">FLUFFELSKILLS</h1>
+
+            <p class="hero-subtitle">
+                Prove what you can do! <br>
+                {{ _('Your digital skill pass for the future') }} <br>
+                {{ _('AI-powered skill profiles for the future of work.') }}
+            </p>
+
+            <p style="color: rgba(255,255,255,0.5); margin-bottom: 2rem; font-size: 1.1rem;">
+                {{ _('Discover your skills. Let AI create your skill profile, develop your career, and show what you can really do.') }}
+            </p>
+
+            <div>
+                <a href="{{ url_for('register') }}" class="btn btn-primary-glow">
+                    {{ _('Create your free skill profile') }}
+                </a>
+
+                <a href="{{ url_for('login') }}" class="btn btn-secondary-glow">
+                    {{ _('Login') }}
+                </a>
+            </div>
+        </div>
+    </section>
+    <section class="features">
+<div class="container">
+
+<div class="row">
+
+<div class="col-md-4">
+    <div class="feature-card">
+
+    <div class="feature-icon">🧠</div>
+
+    <h3 class="feature-title">
+    {{ _('AI skill analysis') }}
+    </h3>
+
+    <p class="feature-text">
+    {{ _('Our AI analyzes projects, experience, and tests to create your personal skill profile.') }}
+    </p>
+
+    </div>
+</div>
+
+
+<div class="col-md-4">
+    <div class="feature-card">
+
+    <div class="feature-icon">🌐</div>
+
+    <h3 class="feature-title">
+    SkillGraph
+    </h3>
+
+    <p class="feature-text">
+    {{ _('Visualize your skills, connections, and which skills you should develop next.') }}
+    </p>
+
+    </div>
+</div>
+
+
+<div class="col-md-4">
+    <div class="feature-card">
+
+    <div class="feature-icon">🚀</div>
+
+    <h3 class="feature-title">
+    {{ _('AI career coach') }}
+    </h3>
+
+    <p class="feature-text">
+    {{ _('Get personalized learning paths, projects, and roadmaps for your career goals.') }}
+    </p>
+
+    </div>
+</div>
+
+
+</div>
+</div>
+</section>
+
+    <!-- Über FluffelSkills -->
+    <section class="about-section">
+
+        <div class="container">
+
+            <h2 class="section-title">
+                {{ _('About FluffelSkills') }}
+            </h2>
+
+
+            <p class="about-text">
+
+                {{ _('FluffelSkills changes how people show their abilities. Not just grades, certificates, or resumes, but real skills. Our AI connects your experience, projects, exams, and evidence into a living digital skill profile. Use it to discover, improve, and showcase your abilities worldwide.') }}
+
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- Über den Entwickler -->
+    <section class="developer-section">
+
+        <div class="container">
+
+            <h2 class="section-title">
+                {{ _('The developer') }}
+            </h2>
+
+
+            <div class="developer-card">
+
+                <div class="developer-info">
+
+                    <h3 class="developer-name">
+                        Florian
+                    </h3>
+
+
+                    <p class="developer-role">
+                    {{ _('Founder and developer of FluffelSkills') }}
+                    </p>
+
+
+                    <p class="developer-bio">
+
+                        {{ _('Florian is developing FluffelSkills with the vision of giving people a new way to make their real abilities visible. The platform connects AI, education, and careers into an intelligent skill system for the future.') }}
+
+                    </p>
+
+
+                    <a href="https://github.com/Flockemon24" 
+                    target="_blank" 
+                    class="btn-github">
+
+                        {{ _('GitHub profile') }}
+
+                    </a>
+
+
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+
+    <footer>
+        <div class="container">
+
+            <p class="footer-text">
+                © 2026 FluffelSkills - {{ _('The digital skill pass for the future') }}
+            </p>
+
+        </div>
+    </footer>
+</body>
+</html>

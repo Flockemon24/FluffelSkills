@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="{{ current_language }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ profile.first_name }} {{ profile.last_name }} · FluffelSkills</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/profile.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="profile-page public-profile-page">
+    <div class="profile-background" aria-hidden="true"></div>
+    <div class="dashboard-scanline"></div>
+
+    <nav class="navbar navbar-expand-lg dashboard-navbar fixed-top">
+        <div class="container">
+            <a class="navbar-brand dashboard-brand" href="{% if current_user.is_authenticated %}{{ url_for('dashboard') }}{% else %}{{ url_for('home_page') }}{% endif %}">
+                <img src="{{ url_for('static', filename='images/icon.png') }}" alt="Logo" width="45" height="45">
+                FLUFFELSKILLS
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#publicProfileNavbar" aria-controls="publicProfileNavbar" aria-label="Navigation öffnen">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="publicProfileNavbar">
+                <ul class="navbar-nav">
+                    {% if current_user.is_authenticated %}
+                        <li class="nav-item"><a class="nav-link dashboard-nav-link" href="{{ url_for('dashboard') }}">Dashboard</a></li>
+                        <li class="nav-item"><a class="nav-link dashboard-nav-link" href="{{ url_for('roadmap') }}">Learning</a></li>
+                        <li class="nav-item"><a class="nav-link dashboard-nav-link" href="{{ url_for('profile') }}">My Profile</a></li>
+                        <li class="nav-item"><a class="nav-link dashboard-nav-link" href="{{ url_for('logout') }}">Log out</a></li>
+                    {% else %}
+                        <li class="nav-item"><a class="nav-link dashboard-nav-link" href="{{ url_for('login') }}">Login</a></li>
+                        <li class="nav-item"><a class="nav-link dashboard-nav-link" href="{{ url_for('register') }}">Create account</a></li>
+                    {% endif %}
+                </ul>
+                {% include '_language_switcher.html' %}
+            </div>
+        </div>
+    </nav>
+
+    <main class="public-profile-main">
+        <header class="public-profile-hero">
+            <img class="profile-avatar public-avatar" src="{{ avatar_url }}" alt="Profilbild von {{ profile.first_name }} {{ profile.last_name }}" onerror="this.src='{{ url_for('static', filename='images/icon.png') }}'">
+            <div class="public-identity">
+                <p class="profile-eyebrow">FLUFFELSKILLS MEMBER</p>
+                <h1>{{ profile.first_name }} {{ profile.last_name }}</h1>
+                <p class="public-username">@{{ user.username }}</p>
+                <p class="public-goal">{{ profile.goal_job }}</p>
+                {% if profile.job_experience %}<p class="public-bio">{{ profile.job_experience }}</p>{% endif %}
+            </div>
+            <a class="profile-create-button" href="{{ url_for('register') }}">Create your FluffelSkills account <span aria-hidden="true">&rarr;</span></a>
+        </header>
+
+        <section class="profile-stats" aria-label="Skill statistics">
+            <div class="profile-stat"><span class="stat-value">{{ skill_points }}</span><span class="stat-label">Skill points</span></div>
+            <div class="profile-stat"><span class="stat-value">{{ skills|length }}</span><span class="stat-label">Skills</span></div>
+            <div class="profile-stat"><span class="stat-value">{{ completed_lesson_count }}</span><span class="stat-label">Lessons completed</span></div>
+        </section>
+
+        <section class="public-profile-section graph-section">
+            <div class="section-heading">
+                <div><p class="profile-eyebrow">CONNECTED KNOWLEDGE</p><h2>SkillGraph</h2></div>
+                <span class="graph-legend"><i></i> Skill level / 100</span>
+            </div>
+            {% if skills %}
+                <svg class="skill-graph" role="img" aria-label="SkillGraph for {{ profile.first_name }}" data-graph="{{ graph|tojson|forceescape }}"></svg>
+            {% else %}
+                <p class="empty-profile-state">Noch keine Skills zum Anzeigen.</p>
+            {% endif %}
+        </section>
+
+        <section class="public-profile-section">
+            <div class="section-heading">
+                <div><p class="profile-eyebrow">MEASURED GROWTH</p><h2>Skills &amp; Fortschritt</h2></div>
+                <span class="section-index">{{ '%02d'|format(skills|length) }}</span>
+            </div>
+            {% if skills %}
+                <div class="public-skill-list">
+                    {% for skill in skills %}
+                        <article class="public-skill-row">
+                            <div class="public-skill-heading">
+                                <div><h3>{{ skill.name }}</h3><p>{{ skill.category }}</p></div>
+                                <strong>{{ skill.level }} <small>pts</small></strong>
+                            </div>
+                            <div class="skill-meter" role="progressbar" aria-label="{{ skill.name }} skill level" aria-valuenow="{{ skill.level }}" aria-valuemin="0" aria-valuemax="100"><span style="width: {{ skill.level }}%"></span></div>
+                            <div class="lesson-meter-label"><span>Learning progress</span><span>{{ skill.completed_lessons }} / {{ skill.total_lessons }} lessons</span></div>
+                            <div class="lesson-meter"><span style="width: {{ skill.lesson_progress }}%"></span></div>
+                        </article>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <p class="empty-profile-state">Noch keine Skills freigegeben.</p>
+            {% endif %}
+        </section>
+
+        <section class="public-profile-section showcase-section">
+            <div class="section-heading">
+                <div><p class="profile-eyebrow">SELECTED WORK</p><h2>Projekte &amp; Nachweise</h2></div>
+                <span class="section-index">{{ '%02d'|format(showcase|length) }}</span>
+            </div>
+            {% if showcase %}
+                <ul class="showcase-list">
+                    {% for item in showcase %}<li><span aria-hidden="true">&#10003;</span>{{ item }}</li>{% endfor %}
+                </ul>
+            {% else %}
+                <p class="empty-profile-state">Noch keine Projekte oder Nachweise veröffentlicht.</p>
+            {% endif %}
+        </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src="{{ url_for('static', filename='javascript/profile.js') }}"></script>
+</body>
+</html>

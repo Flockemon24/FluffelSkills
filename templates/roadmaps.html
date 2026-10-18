@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/dashboard.css">
+    <link rel="stylesheet" href="../static/css/roadmaps.css">
+    <title>FluffelSkills - Roadmaps</title>
+</head>
+<body class="roadmap-page">
+    <div class="roadmap-background" aria-hidden="true"></div>
+    <div class="roadmap-particles" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+    <div class="dashboard-scanline"></div>
+    <nav class="navbar navbar-expand-lg dashboard-navbar fixed-top">
+        <div class="container">
+            <a class="navbar-brand dashboard-brand" href="{{ url_for('dashboard') }}">
+                <img src="../static/images/icon.png" alt="Logo" width="45" height="45">
+                FLUFFELSKILLS
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#roadmapNavbar" aria-controls="roadmapNavbar" aria-label="Navigation öffnen">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="roadmapNavbar">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link dashboard-nav-link" href="{{ url_for('dashboard') }}">Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link dashboard-nav-link active" href="{{ url_for('roadmap') }}">Learning</a></li>
+                    <li class="nav-item"><a class="nav-link dashboard-nav-link" href="{{ url_for('profile') }}">Profile</a></li>
+                    <li class="nav-item"><a class="nav-link dashboard-nav-link" href="{{ url_for('logout') }}">Log out</a></li>
+                </ul>
+                {% include '_language_switcher.html' %}
+            </div>
+        </div>
+    </nav>
+    <main class="roadmap-main">
+        <div class="roadmap-content">
+        <header class="roadmap-header">
+            <p class="roadmap-eyebrow">LEARNING NETWORK</p>
+            <h1>Dein Skill-Universum</h1>
+            <p>Entdecke Lektionen, trainiere gezielt und verfolge deinen Fortschritt.</p>
+        </header>
+
+        <div class="row roadmap-grid">
+            {% for skill in skills %}
+            <div class="col-md-4 mb-4">
+                <div class="card roadmap-skill-card h-100">
+                    <div class="card-body">
+                        <p class="roadmap-category">{{ skill.categorie }}</p>
+                        <h2 class="card-title">{{ skill.skill_name }}</h2>
+                        <p class="roadmap-description">{{ skill.description }}</p>
+                        <h3 class="roadmap-lessons-title">Lernpfad <span>{{ skill.lessons|length }} Lektionen</span></h3>
+                        <div class="list-group list-group-flush">
+                            {% for lesson in skill.lessons|sort(attribute='order_index') %}
+                                <a href="/lesson/{{ lesson.id }}" class="list-group-item list-group-item-action roadmap-lesson d-flex justify-content-between align-items-center">
+                                    <span><small>{{ '%02d'|format(lesson.order_index) }}</small>{{ lesson.title }}</span>
+                                    {% if lesson.id in completed %}
+                                        <span class="badge lesson-done" aria-label="Erledigt">✓</span>
+                                    {% else %}
+                                        <span class="badge lesson-open" aria-label="Offen">→</span>
+                                    {% endif %}
+                                </a>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        </div>
+    </main>
+</body>
+</html>

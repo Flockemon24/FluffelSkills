@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../static/css/lesson.css">
+    <title>{{ lesson.title }} - FluffelSkills</title>
+</head>
+<body id="page-body" data-answer="{{ answer }}" data-id="{{ id }}">
+    <div class="bg-animation" aria-hidden="true"></div>
+    <div class="particles" aria-hidden="true">
+        <div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div>
+        <div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div>
+    </div>
+
+    <main class="lesson-shell">
+        <a href="/roadmap" class="lesson-back">&larr; Zurück zur Roadmap</a>
+        <h1 class="lesson-title">{{ lesson.title }}</h1>
+        <span class="skill-badge">Skill: {{ lesson.skill_catalog.skill_name }}</span>
+        
+        <div class="lesson-content">
+            {{ lesson.content }}
+        </div>
+
+        <section class="challenge-card" aria-labelledby="challenge-title">
+            <h2 id="challenge-title" class="challenge-title">Prove what you can do!</h2>
+            <p class="challenge-question">{{ lesson.question }}</p>
+                
+            <form id="submitForm" action="/lesson/{{ lesson.id }}/submit" method="POST">
+                <label class="visually-hidden" for="lesson-answer">Deine Antwort</label>
+                <input id="lesson-answer" type="text" name="answer" class="answer-input" placeholder="Deine Antwort hier eintippen..." required autocomplete="off">
+                <button type="submit" class="submit-button">Antwort prüfen</button>
+            </form>
+        </section>
+    </main>
+
+    <div id="correctCard" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="correct-title" hidden>
+        <div class="modal-content correct-content">
+            <button type="button" class="close-button" data-continue aria-label="Schließen">&times;</button>
+            <div class="modal-icon">🚀</div>
+            <h2 id="correct-title">Richtig!</h2>
+            <p>Herzlichen Glückwunsch</p>
+            <p class="highlight-text">Du hast <strong>{{ lesson.title }} </strong>erfolgreich bestanden!</p>
+            <p>Mach direkt weiter mit dem nächsten Skill!</p>
+            <button type="button" class="modal-btn" data-continue>Weiter</button>
+        </div>
+    </div>
+
+    <div id="wrongCard" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="wrong-title" hidden>
+        <div class="modal-content wrong-content">
+            <button type="button" class="close-button" data-retry aria-label="Schließen">&times;</button>
+            <div class="modal-icon">↻</div>
+            <h2 id="wrong-title">Noch nicht ganz!</h2>
+            <p>Deine Antwort stimmt noch nicht. Schau dir die Erklärung noch einmal an und versuche es erneut.</p>
+            <button type="button" class="modal-btn" data-retry>Nochmal versuchen</button>
+        </div>
+    </div>
+
+    <script src="../static/javascript/lesson.js"></script>
+</body>
+</html>
