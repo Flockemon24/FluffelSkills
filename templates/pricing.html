@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ current_language }}">
+<html lang="de">
 
 <head>
 
@@ -7,7 +7,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>FluffelSkills - {{ _('Pricing') }}</title>
+    <title>FluffelSkills - Preise</title>
 
     <link
         href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
@@ -28,7 +28,7 @@
 
 </head>
 
-<body data-month-label="{{ _('month') }}" data-year-label="{{ _('year') }}" data-monthly-annual="{{ _('or 99 € / year · save 17 percent') }}" data-future-annual="{{ _('or 199 € / year · save 17 percent') }}" data-pro-monthly-annual="{{ _('equivalent to 8.25 € / month · save 17 percent') }}" data-future-monthly-annual="{{ _('equivalent to 16.58 € / month · save 17 percent') }}">
+<body data-month-label="Monat" data-year-label="Jahr" data-monthly-annual="oder 99 € / Jahr · 17 % sparen" data-future-annual="oder 199 € / Jahr · 17 % sparen" data-pro-monthly-annual="entspricht 8,25 € / Monat · 17 % sparen" data-future-monthly-annual="entspricht 16,58 € / Monat · 17 % sparen">
 
     <!-- =========================================================
          BACKGROUND
@@ -71,21 +71,20 @@
                 <img src="../static/images/icon.png" alt="Logo" width="45" height="45">
                 FLUFFELSKILLS
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#pricingNavbar" aria-controls="pricingNavbar" aria-label="{{ _('Open navigation') }}">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#pricingNavbar" aria-controls="pricingNavbar" aria-label="Navigation öffnen">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="pricingNavbar">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link pricing-nav-link active" href="{{ url_for('pricing') }}">{{ _('Pricing') }}</a>
+                        <a class="nav-link pricing-nav-link active" href="{{ url_for('pricing') }}">Preise</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link pricing-nav-link" href="{{ url_for('login') }}">{{ _('Login') }}</a>
+                        <a class="nav-link pricing-nav-link" href="{{ url_for('login') }}">Anmelden</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link pricing-nav-link" href="{{ url_for('register') }}">{{ _('Register') }}</a>
+                        <a class="nav-link pricing-nav-link" href="{{ url_for('register') }}">Registrieren</a>
                     </li>
-                    <li class="nav-item">{% include '_language_switcher.html' %}</li>
                 </ul>
             </div>
         </div>
@@ -118,16 +117,16 @@
 
                 <h1 class="pricing-title">
 
-                    {{ _('YOUR SKILLS.') }}<br>
+                    DEINE SKILLS.<br>
 
-                    <span>{{ _('YOUR FUTURE.') }}</span>
+                    <span>DEINE ZUKUNFT.</span>
 
                 </h1>
 
 
                 <p class="pricing-subtitle">
 
-                    {{ _('Start for free and discover your potential. Develop your skills with AI and build your future step by step.') }}
+                    Starte kostenlos und entdecke dein Potenzial. Entwickle deine Skills mit KI und baue dir Schritt für Schritt deine Zukunft auf.
 
                 </p>
 
@@ -143,7 +142,7 @@
 
 
                 <span class="billing-label">
-                    {{ _('Monthly') }}
+                    Monatlich
                 </span>
 
 
@@ -152,19 +151,19 @@
                     id="billingToggle"
                     onclick="toggleBilling()"
                     role="button"
-                    aria-label="{{ _('Switch billing') }}"
+                    aria-label="Abrechnung wechseln"
                     aria-pressed="false"
                     tabindex="0"
                 ></div>
 
 
                 <span class="billing-label">
-                    {{ _('Yearly') }}
+                    Jährlich
                 </span>
 
 
                 <span class="saving-badge">
-                    {{ _('Save 17 percent') }}
+                    17 % sparen
                 </span>
 
 
@@ -188,7 +187,7 @@
 
 
                             <div class="plan-target">
-                                {{ _('For beginners') }}
+                                Für Einsteiger
                             </div>
 
 
@@ -198,7 +197,7 @@
 
 
                             <div class="plan-tagline">
-                                {{ _('Discover your skills.') }}
+                                Entdecke deine Skills.
                             </div>
 
 
@@ -207,14 +206,14 @@
                                 0 €
 
                                 <span>
-                                    / {{ _('forever') }}
+                                    / dauerhaft
                                 </span>
 
                             </div>
 
 
                             <div class="annual-price">
-                                {{ _('No credit card required') }}
+                                Keine Kreditkarte erforderlich
                             </div>
 
 
@@ -230,7 +229,7 @@
                                         ✓
                                     </span>
 
-                                    {{ _('Skill profile') }}
+                                    Skill-Profil
 
                                 </li>
 
@@ -241,7 +240,7 @@
                                         ✓
                                     </span>
 
-                                    {{ _('Basic AI skill analysis') }}
+                                    Basis KI Skill-Analyse
 
                                 </li>
 
@@ -252,7 +251,7 @@
                                         ✓
                                     </span>
 
-                                    {{ _('Static SkillGraph') }}
+                                    Statischer SkillGraph
 
                                 </li>
 
@@ -263,7 +262,7 @@
                                         ✓
                                     </span>
 
-                                    {{ _('1 project analysis / month') }}
+                                    1 Projektanalyse / Monat
 
                                 </li>
 
@@ -274,7 +273,7 @@
                                         ✓
                                     </span>
 
-                                    {{ _('Basic skill tests') }}
+                                    Basis Skill Tests
 
                                 </li>
 
@@ -285,7 +284,7 @@
                                         ×
                                     </span>
 
-                                    {{ _('AI career coach') }}
+                                    KI Karriere-Coach
 
                                 </li>
 
@@ -296,7 +295,7 @@
                                         ×
                                     </span>
 
-                                    {{ _('Personal roadmaps') }}
+                                    Persönliche Roadmaps
 
                                 </li>
 
@@ -318,7 +317,7 @@
                                         ×
                                     </span>
 
-                                    {{ _('Progress analysis') }}
+                                    Fortschrittsanalyse
 
                                 </li>
 
@@ -333,7 +332,7 @@
                             href="{{ url_for('register') }}"
                             class="pricing-btn pricing-btn-secondary"
                         >
-                            {{ _('Start for free') }} →
+                            Kostenlos starten →
                         </a>
 
 
@@ -350,7 +349,7 @@
 
                         <div class="popular-badge">
 
-                            ★ {{ _('MOST POPULAR') }}
+                            ★ AM BELIEBTESTEN
 
                         </div>
 
@@ -359,7 +358,7 @@
 
 
                             <div class="plan-target">
-                                {{ _('For students and young professionals') }}
+                                Für Schüler und Berufseinsteiger
                             </div>
 
 
@@ -369,7 +368,7 @@
 
 
                             <div class="plan-tagline">
-                                {{ _('Develop your skills.') }}
+                                Entwickle deine Skills.
                             </div>
 
 
@@ -381,7 +380,7 @@
                                 9,99 €
 
                                 <span>
-                                    / {{ _('month') }}
+                                    / Monat
                                 </span>
 
                             </div>
@@ -391,7 +390,7 @@
                                 class="annual-price"
                                 id="proAnnual"
                             >
-                                {{ _('or 99 € / year · save 17 percent') }}
+                                oder 99 € / Jahr · 17 % sparen
                             </div>
 
 
@@ -407,7 +406,7 @@
                                         ✓
                                     </span>
 
-                                    {{ _('Everything in START') }}
+                                    Alles aus START
 
                                 </li>
 
@@ -418,7 +417,7 @@
                                         ✓
                                     </span>
 
-                                    {{ _('Advanced AI skill analysis') }}
+                                    Erweiterte KI Skill-Analyse
 
                                 </li>
 
@@ -429,7 +428,7 @@
                                         ✓
                                     </span>
 
-                                    {{ _('Interactive SkillGraph') }}
+                                    Interaktiver SkillGraph
 
                                 </li>
 
@@ -440,7 +439,7 @@
                                         ✓
                                     </span>
 
-                                    {{ _('Unlimited project analyses') }}
+                                    Unbegrenzte Projektanalysen
 
                                 </li>
 
@@ -451,7 +450,7 @@
                                         ✓
                                     </span>
 
-                                    {{ _('Personal AI career coach') }}
+                                    Persönlicher KI-Karriere-Coach
 
                                 </li>
 
@@ -462,7 +461,7 @@
                                         ✓
                                     </span>
 
-                                    {{ _('Personal learning roadmaps') }}
+                                    Persönliche Lern-Roadmaps
 
                                 </li>
 
@@ -473,7 +472,7 @@
                                         ✓
                                     </span>
 
-                                    {{ _('Skill tests and verification') }}
+                                    Skill Tests und Verifizierung
 
                                 </li>
 
@@ -495,7 +494,7 @@
                                         ✓
                                     </span>
 
-                                    {{ _('Progress analysis') }}
+                                    Fortschrittsanalyse
 
                                 </li>
 
@@ -511,7 +510,7 @@
                             class="pricing-btn pricing-btn-primary"
                             onclick="openModal(event, 'PRO')"
                         >
-                            {{ _('Start PRO') }} →
+                            PRO starten →
                         </a>
 
 
@@ -530,7 +529,7 @@
 
 
                             <div class="plan-target">
-                                {{ _('For power users') }}
+                                Für Vielnutzer
                             </div>
 
 
@@ -540,7 +539,7 @@
 
 
                             <div class="plan-tagline">
-                                {{ _('Build your future.') }}
+                                Baue deine Zukunft.
                             </div>
 
 
@@ -552,7 +551,7 @@
                                 19,99 €
 
                                 <span>
-                                    / {{ _('month') }}
+                                    / Monat
                                 </span>
 
                             </div>
@@ -562,7 +561,7 @@
                                 class="annual-price"
                                 id="futureAnnual"
                             >
-                                {{ _('or 199 € / year · save 17 percent') }}
+                                oder 199 € / Jahr · 17 % sparen
                             </div>
 
 
@@ -578,7 +577,7 @@
                                         ✓
                                     </span>
 
-                                    {{ _('Everything in PRO') }}
+                                    Alles aus PRO
 
                                 </li>
 
@@ -622,7 +621,7 @@
                                         ✓
                                     </span>
 
-                                    {{ _('Advanced AI career coach') }}
+                                    Erweiterter KI-Karriere-Coach
 
                                 </li>
 
@@ -633,7 +632,7 @@
                                         ✓
                                     </span>
 
-                                    {{ _('Dynamic live roadmaps') }}
+                                    Dynamische Live-Roadmaps
 
                                 </li>
 
@@ -644,7 +643,7 @@
                                         ✓
                                     </span>
 
-                                    {{ _('Advanced skill assessments') }}
+                                    Erweiterte Skill-Assessments
 
                                 </li>
 
@@ -655,7 +654,7 @@
                                         ✓
                                     </span>
 
-                                    {{ _('Advanced GitHub analysis') }}
+                                    Erweiterte GitHub-Analyse
 
                                 </li>
 
@@ -666,7 +665,7 @@
                                         ✓
                                     </span>
 
-                                    {{ _('CV and career analysis') }}
+                                    CV- und Karriere-Analyse
 
                                 </li>
 
@@ -677,7 +676,7 @@
                                         ✓
                                     </span>
 
-                                    {{ _('Career insights and forecasting') }}
+                                    Karriere-Insights und Forecasting
 
                                 </li>
 
@@ -693,7 +692,7 @@
                             class="pricing-btn pricing-btn-primary"
                             onclick="openModal(event, 'FUTURE')"
                         >
-                            {{ _('Discover FUTURE') }} →
+                            FUTURE entdecken →
                         </a>
 
 
@@ -718,7 +717,7 @@
                         ✓
                     </span>
 
-                    {{ _('No hidden costs') }}
+                    Keine versteckten Kosten
 
                 </div>
 
@@ -729,7 +728,7 @@
                         ↩
                     </span>
 
-                    {{ _('Cancel anytime') }}
+                    Jederzeit kündbar
 
                 </div>
 
@@ -740,7 +739,7 @@
                         ⚡
                     </span>
 
-                    {{ _('Immediate access') }}
+                    Sofortiger Zugriff
 
                 </div>
 
@@ -751,7 +750,7 @@
                         🔒
                     </span>
 
-                    {{ _('Secure and protected') }}
+                    Sicher und geschützt
 
                 </div>
 
@@ -769,11 +768,11 @@
                 <div class="pricing-section-heading">
 
                     <h2>
-                        {{ _('ALL FEATURES COMPARED') }}
+                        ALLE FEATURES IM VERGLEICH
                     </h2>
 
                     <p>
-                        {{ _('Find the skill pass that fits your goals.') }}
+                        Finde den Skill-Pass, der zu deinen Zielen passt.
                     </p>
 
                 </div>
@@ -790,7 +789,7 @@
                             <tr>
 
                                 <th>
-                                    {{ _('Feature') }}
+                                    Feature
                                 </th>
 
                                 <th>
@@ -816,7 +815,7 @@
                             <tr>
 
                                 <td>
-                                    {{ _('Skill profile') }}
+                                    Skill-Profil
                                 </td>
 
                                 <td>
@@ -843,15 +842,15 @@
                             <tr>
 
                                 <td>
-                                    {{ _('AI skill analysis') }}
+                                    KI Skill-Analyse
                                 </td>
 
                                 <td>
-                                    {{ _('Basic') }}
+                                    Basis
                                 </td>
 
                                 <td class="pro-column">
-                                    {{ _('Advanced') }}
+                                    Erweitert
                                 </td>
 
                                 <td>
@@ -868,11 +867,11 @@
                                 </td>
 
                                 <td>
-                                    {{ _('Static') }}
+                                    Statisch
                                 </td>
 
                                 <td class="pro-column">
-                                    {{ _('Interactive') }}
+                                    Interaktiv
                                 </td>
 
                                 <td>
@@ -885,11 +884,11 @@
                             <tr>
 
                                 <td>
-                                    {{ _('Project analyses') }}
+                                    Projektanalysen
                                 </td>
 
                                 <td>
-                                    1 / {{ _('month') }}
+                                    1 / Monat
                                 </td>
 
                                 <td class="pro-column">
@@ -906,7 +905,7 @@
                             <tr>
 
                                 <td>
-                                    {{ _('AI career coach') }}
+                                    KI Karriere-Coach
                                 </td>
 
                                 <td class="table-muted">
@@ -920,7 +919,7 @@
                                 </td>
 
                                 <td>
-                                    {{ _('Advanced') }}
+                                    Erweitert
                                 </td>
 
                             </tr>
@@ -929,7 +928,7 @@
                             <tr>
 
                                 <td>
-                                    {{ _('Learning roadmaps') }}
+                                    Lern-Roadmaps
                                 </td>
 
                                 <td class="table-muted">
@@ -937,11 +936,11 @@
                                 </td>
 
                                 <td class="pro-column">
-                                    {{ _('Personal') }}
+                                    Persönlich
                                 </td>
 
                                 <td>
-                                    {{ _('Dynamic') }}
+                                    Dynamisch
                                 </td>
 
                             </tr>
@@ -950,11 +949,11 @@
                             <tr>
 
                                 <td>
-                                    {{ _('Skill tests') }}
+                                    Skill Tests
                                 </td>
 
                                 <td>
-                                    {{ _('Basic') }}
+                                    Basis
                                 </td>
 
                                 <td class="pro-column">
@@ -964,7 +963,7 @@
                                 </td>
 
                                 <td>
-                                    {{ _('Advanced') }}
+                                    Erweitert
                                 </td>
 
                             </tr>
@@ -973,7 +972,7 @@
                             <tr>
 
                                 <td>
-                                    {{ _('Skill verification') }}
+                                    Skill-Verifizierung
                                 </td>
 
                                 <td class="table-muted">
@@ -1012,7 +1011,7 @@
                                 </td>
 
                                 <td>
-                                    {{ _('Advanced') }}
+                                    Erweitert
                                 </td>
 
                             </tr>
@@ -1021,7 +1020,7 @@
                             <tr>
 
                                 <td>
-                                    {{ _('Skill gap detection') }}
+                                    Skill Gap Detection
                                 </td>
 
                                 <td class="table-muted">
@@ -1029,11 +1028,11 @@
                                 </td>
 
                                 <td class="pro-column">
-                                    {{ _('Basic') }}
+                                    Basis
                                 </td>
 
                                 <td>
-                                    {{ _('Advanced') }}
+                                    Erweitert
                                 </td>
 
                             </tr>
@@ -1042,7 +1041,7 @@
                             <tr>
 
                                 <td>
-                                    {{ _('CV analysis') }}
+                                    CV-Analyse
                                 </td>
 
                                 <td class="table-muted">
@@ -1065,7 +1064,7 @@
                             <tr>
 
                                 <td>
-                                    {{ _('Career forecasting') }}
+                                    Karriere Forecasting
                                 </td>
 
                                 <td class="table-muted">
@@ -1108,20 +1107,20 @@
 
 
                     <div class="enterprise-label">
-                        FLUFFELSKILLS FOR BUSINESS
+                        FLUFFELSKILLS FÜR UNTERNEHMEN
                     </div>
 
 
                     <h2 class="enterprise-title">
 
-                        {{ _('Make skills visible. Recognize talent. Shape the future.') }}
+                        Skills sichtbar machen. Talente erkennen. Zukunft gestalten.
 
                     </h2>
 
 
                     <p class="enterprise-description">
 
-                        {{ _('For companies, schools, and organizations that want to actively develop skills instead of merely managing them.') }}
+                        Für Unternehmen, Schulen und Organisationen, die Skills nicht nur verwalten, sondern aktiv entwickeln möchten.
 
                     </p>
 
@@ -1129,7 +1128,7 @@
                     <ul class="enterprise-features">
 
                         <li>
-                            {{ _('Team dashboards') }}
+                            Team-Dashboards
                         </li>
 
                         <li>
@@ -1137,11 +1136,11 @@
                         </li>
 
                         <li>
-                            {{ _('Admin management') }}
+                            Admin-Verwaltung
                         </li>
 
                         <li>
-                            {{ _('Custom skill tests') }}
+                            Individuelle Skill Tests
                         </li>
 
                         <li>
@@ -1149,7 +1148,7 @@
                         </li>
 
                         <li>
-                            {{ _('Custom skill profiles') }}
+                            Individuelle Skill-Profile
                         </li>
 
                     </ul>
@@ -1159,7 +1158,7 @@
                         href="mailto:fluffeltech@gmx.de"
                         class="enterprise-btn"
                     >
-                        {{ _('Get in touch') }} →
+                        Kontakt aufnehmen →
                     </a>
 
 
@@ -1182,7 +1181,7 @@
     <footer class="pricing-footer">
 
         © 2026 FluffelSkills –
-        {{ _('The digital skill pass for the future.') }}
+        Der digitale Skill-Pass der Zukunft.
 
     </footer>
 

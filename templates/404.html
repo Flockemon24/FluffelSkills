@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ current_language }}">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,19 +17,18 @@
                 <img src="../static/images/icon.png" alt="Logo" width="45" height="45">
                 FLUFFELSKILLS
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#dashboardNavbar" aria-controls="dashboardNavbar" aria-label="{{ _('Open navigation') }}">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#dashboardNavbar" aria-controls="dashboardNavbar" aria-label="Navigation öffnen">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="dashboardNavbar">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link dashboard-nav-link" href="{{ url_for('dashboard') }}">{{ _('Dashboard') }}</a>
+                        <a class="nav-link dashboard-nav-link" href="{{ url_for('dashboard') }}">Übersicht</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link dashboard-nav-link" href="{{ url_for('home_page') }}">Landing-Page</a>
+                        <a class="nav-link dashboard-nav-link" href="{{ url_for('home_page') }}">Startseite</a>
                     </li>
                 </ul>
-                {% include '_language_switcher.html' %}
             </div>
         </div>
     </nav>

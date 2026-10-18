@@ -1,9 +1,9 @@
 ﻿<!DOCTYPE html>
-<html lang="{{ current_language }}">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FluffelSkills - {{ _('Your digital skill pass') }}</title>
+    <title>FluffelSkills - Dein digitaler Skill-Pass</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -28,10 +28,9 @@
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link nav-link-custom" href="{{ url_for('pricing') }}">{{ _('Pricing') }}</a></li>
-                    <li class="nav-item"><a class="nav-link nav-link-custom" href="{{ url_for('login') }}">{{ _('Login') }}</a></li>
-                    <li class="nav-item"><a class="nav-link nav-link-custom" href="{{ url_for('register') }}">{{ _('Register') }}</a></li>
-                    <li class="nav-item">{% include '_language_switcher.html' %}</li>
+                    <li class="nav-item"><a class="nav-link nav-link-custom" href="{{ url_for('pricing') }}">Preise</a></li>
+                    <li class="nav-item"><a class="nav-link nav-link-custom" href="{{ url_for('login') }}">Anmelden</a></li>
+                    <li class="nav-item"><a class="nav-link nav-link-custom" href="{{ url_for('register') }}">Registrieren</a></li>
                 </ul>
             </div>
         </div>
@@ -42,22 +41,22 @@
             <h1 class="hero-title">FLUFFELSKILLS</h1>
 
             <p class="hero-subtitle">
-                Prove what you can do! <br>
-                {{ _('Your digital skill pass for the future') }} <br>
-                {{ _('AI-powered skill profiles for the future of work.') }}
+                Zeig, was du kannst! <br>
+                Dein digitaler Skill-Pass der Zukunft <br>
+                KI-gestützte Skill-Profile für die Zukunft der Arbeit.
             </p>
 
             <p style="color: rgba(255,255,255,0.5); margin-bottom: 2rem; font-size: 1.1rem;">
-                {{ _('Discover your skills. Let AI create your skill profile, develop your career, and show what you can really do.') }}
+                Entdecke deine Fähigkeiten. Lass KI dein Skill-Profil erstellen, entwickle deine Karriere und zeige, was du wirklich kannst.
             </p>
 
             <div>
                 <a href="{{ url_for('register') }}" class="btn btn-primary-glow">
-                    {{ _('Create your free skill profile') }}
+                    Skill-Profil kostenlos erstellen
                 </a>
 
                 <a href="{{ url_for('login') }}" class="btn btn-secondary-glow">
-                    {{ _('Login') }}
+                    Anmelden
                 </a>
             </div>
         </div>
@@ -73,11 +72,11 @@
     <div class="feature-icon">🧠</div>
 
     <h3 class="feature-title">
-    {{ _('AI skill analysis') }}
+    KI Skill-Analyse
     </h3>
 
     <p class="feature-text">
-    {{ _('Our AI analyzes projects, experience, and tests to create your personal skill profile.') }}
+    Unsere KI analysiert Projekte, Erfahrungen und Tests und erstellt dein persönliches Skill-Profil.
     </p>
 
     </div>
@@ -94,7 +93,7 @@
     </h3>
 
     <p class="feature-text">
-    {{ _('Visualize your skills, connections, and which skills you should develop next.') }}
+    Visualisiere deine Fähigkeiten, Zusammenhänge und welche Skills du als Nächstes entwickeln solltest.
     </p>
 
     </div>
@@ -107,11 +106,11 @@
     <div class="feature-icon">🚀</div>
 
     <h3 class="feature-title">
-    {{ _('AI career coach') }}
+    KI Karriere-Coach
     </h3>
 
     <p class="feature-text">
-    {{ _('Get personalized learning paths, projects, and roadmaps for your career goals.') }}
+    Erhalte individuelle Lernpfade, Projekte und Roadmaps für deine beruflichen Ziele.
     </p>
 
     </div>
@@ -128,13 +127,13 @@
         <div class="container">
 
             <h2 class="section-title">
-                {{ _('About FluffelSkills') }}
+                Über FluffelSkills
             </h2>
 
 
             <p class="about-text">
 
-                {{ _('FluffelSkills changes how people show their abilities. Not just grades, certificates, or resumes, but real skills. Our AI connects your experience, projects, exams, and evidence into a living digital skill profile. Use it to discover, improve, and showcase your abilities worldwide.') }}
+                FluffelSkills verändert, wie Menschen ihre Fähigkeiten präsentieren. Nicht nur Noten, Zertifikate oder Lebensläufe zählen, sondern echte Kompetenzen. Unsere KI verknüpft Erfahrungen, Projekte, Prüfungen und Nachweise zu einem lebendigen digitalen Kompetenzprofil. Entdecke, erweitere und präsentiere damit deine Fähigkeiten weltweit.
 
             </p>
 
@@ -149,7 +148,7 @@
         <div class="container">
 
             <h2 class="section-title">
-                {{ _('The developer') }}
+                Der Entwickler
             </h2>
 
 
@@ -163,13 +162,13 @@
 
 
                     <p class="developer-role">
-                    {{ _('Founder and developer of FluffelSkills') }}
+                    Gründer und Entwickler von FluffelSkills
                     </p>
 
 
                     <p class="developer-bio">
 
-                        {{ _('Florian is developing FluffelSkills with the vision of giving people a new way to make their real abilities visible. The platform connects AI, education, and careers into an intelligent skill system for the future.') }}
+                        Florian entwickelt FluffelSkills mit der Vision, Menschen eine neue Möglichkeit zu geben, ihre echten Fähigkeiten sichtbar zu machen. Die Plattform verbindet KI, Bildung und Karriere zu einem intelligenten Skill-System der Zukunft.
 
                     </p>
 
@@ -178,7 +177,7 @@
                     target="_blank" 
                     class="btn-github">
 
-                        {{ _('GitHub profile') }}
+                        GitHub Profil
 
                     </a>
 
@@ -194,7 +193,7 @@
         <div class="container">
 
             <p class="footer-text">
-                © 2026 FluffelSkills - {{ _('The digital skill pass for the future') }}
+                © 2026 FluffelSkills - Der digitale Skill-Pass der Zukunft
             </p>
 
         </div>

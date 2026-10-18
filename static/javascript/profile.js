@@ -23,7 +23,7 @@ if (pictureInput && profileAvatar) {
 const deleteForm = document.getElementById('deleteAccountForm');
 if (deleteForm) {
     deleteForm.addEventListener('submit', (event) => {
-        if (!window.confirm('Account und zugehörige Daten endgültig löschen? Diese Aktion kann nicht rückgängig gemacht werden.')) {
+        if (!window.confirm('Konto und zugehörige Daten endgültig löschen? Diese Aktion kann nicht rückgängig gemacht werden.')) {
             event.preventDefault();
         }
     });
@@ -80,7 +80,7 @@ document.querySelectorAll('.skill-graph[data-graph]').forEach((graphElement) => 
         addSvgElement(group, 'circle', { cx: position.x, cy: position.y, r: radius, class: 'graph-node' });
         addSvgElement(group, 'circle', { cx: position.x, cy: position.y, r: Math.max(3, radius * 0.27), class: 'graph-node-core' });
         addSvgElement(group, 'text', { x: position.x, y: position.y + radius + 17, class: 'graph-label' }, node.skill.length > 17 ? `${node.skill.slice(0, 16)}…` : node.skill);
-        addSvgElement(group, 'text', { x: position.x, y: position.y + radius + 30, class: 'graph-level' }, `${level} pts`);
+        addSvgElement(group, 'text', { x: position.x, y: position.y + radius + 30, class: 'graph-level' }, `${level} Punkte`);
         addSvgElement(group, 'title', {}, `${node.skill} · ${node.category} · ${level} Punkte`);
     });
 });

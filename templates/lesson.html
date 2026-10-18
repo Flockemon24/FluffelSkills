@@ -18,16 +18,16 @@
     </div>
 
     <main class="lesson-shell">
-        <a href="/roadmap" class="lesson-back">&larr; Zurück zur Roadmap</a>
+        <a href="/roadmap" class="lesson-back">&larr; Zurück zum Lernpfad</a>
         <h1 class="lesson-title">{{ lesson.title }}</h1>
-        <span class="skill-badge">Skill: {{ lesson.skill_catalog.skill_name }}</span>
+        <span class="skill-badge">Fähigkeit: {{ lesson.skill_catalog.skill_name }}</span>
         
         <div class="lesson-content">
             {{ lesson.content }}
         </div>
 
         <section class="challenge-card" aria-labelledby="challenge-title">
-            <h2 id="challenge-title" class="challenge-title">Prove what you can do!</h2>
+            <h2 id="challenge-title" class="challenge-title">Zeig, was du kannst!</h2>
             <p class="challenge-question">{{ lesson.question }}</p>
                 
             <form id="submitForm" action="/lesson/{{ lesson.id }}/submit" method="POST">

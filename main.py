@@ -1,5 +1,4 @@
-from flask import Flask, abort, render_template, jsonify, flash, request, redirect, url_for, session, make_response, send_file # pyright: ignore[reportMissingImports]
-from flask_babel import Babel # pyright: ignore[reportMissingImports]
+from flask import Flask, abort, render_template, jsonify, flash, request, redirect, url_for, make_response, send_file # pyright: ignore[reportMissingImports]
 from flask_login import LoginManager, UserMixin, login_user, logout_user, login_required, current_user # pyright: ignore[reportMissingImports]
 from sqlalchemy.orm import joinedload
 from datetime import datetime
@@ -40,9 +39,6 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config["SESSION_COOKIE_HTTPONLY"] = True
 app.config["SESSION_COOKIE_SAMESITE"] = "Lax"
 app.config["SESSION_COOKIE_SECURE"] = True  # nur HTTPS
-app.config["LANGUAGES"] = ["de", "en"]
-app.config["BABEL_DEFAULT_LOCALE"] = "de"
-app.config["BABEL_TRANSLATION_DIRECTORIES"] = "translations"
 
 app.config['MAIL_SERVER'] = 'mail.gmx.net'
 app.config['MAIL_PORT'] = 587
@@ -56,15 +52,6 @@ mail = Mail(app)
 serializer = URLSafeTimedSerializer(app.secret_key)
 
 
-def get_locale():
-    selected_language = session.get("language")
-    if selected_language in app.config["LANGUAGES"]:
-        return selected_language
-    return request.accept_languages.best_match(app.config["LANGUAGES"]) or "de"
-
-
-babel = Babel(app, locale_selector=get_locale)
-
 db.init_app(app)
 
 login_manager = LoginManager()
@@ -74,23 +61,6 @@ login_manager.login_view = "login"  # wohin bei nicht eingeloggt
 
 # API-System einbinden
 app.register_blueprint(api_bp)
-
-
-@app.context_processor
-def inject_language_data():
-    return {
-        "available_languages": app.config["LANGUAGES"],
-        "current_language": get_locale(),
-    }
-
-
-@app.route("/set-language/<language>")
-def set_language(language):
-    if language not in app.config["LANGUAGES"]:
-        return redirect(request.referrer or url_for("home_page"))
-    session["language"] = language
-    return redirect(request.referrer or url_for("home_page"))
-
 
 
 @login_manager.user_loader
@@ -106,7 +76,7 @@ def admin_required(f):
     @wraps(f)
     def wrapper(*args, **kwargs):
         if current_user.role != "admin":
-            return "Forbidden", 403
+            return "Zugriff verweigert", 403
         return f(*args, **kwargs)
     return wrapper
 
@@ -777,7 +747,7 @@ def update_profile():
 def delete_account():
     account = current_user._get_current_object()
     if not check_password_hash(account.pass_hash, request.form.get('password', '')):
-        flash('Das Passwort ist falsch. Dein Account wurde nicht gelöscht.', 'error')
+        flash('Das Passwort ist falsch. Dein Konto wurde nicht gelöscht.', 'error')
         return redirect(url_for('profile'))
     if request.form.get('confirm_delete') != 'yes':
         abort(400)
@@ -796,7 +766,7 @@ def delete_account():
     db.session.delete(account)
     db.session.commit()
     logout_user()
-    flash('Dein Account wurde gelöscht.', 'success')
+    flash('Dein Konto wurde gelöscht.', 'success')
     return redirect(url_for('home_page'))
 
 @app.route('/lesson/<int:lesson_id>')

@@ -1,9 +1,0 @@
-<div class="language-switcher d-flex align-items-center gap-1 ms-3" aria-label="{{ _('Language') }}">
-    {% for language in available_languages %}
-        <a class="btn btn-sm {% if current_language == language %}btn-light{% else %}btn-outline-light{% endif %}"
-           href="{{ url_for('set_language', language=language) }}"
-           lang="{{ language }}">
-            {{ language|upper }}
-        </a>
-    {% endfor %}
-</div>

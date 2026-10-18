@@ -1,26 +1,25 @@
 <!DOCTYPE html>
-<html lang="{{ current_language }}">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FluffelSkills - {{ _('Onboarding') }}</title>
+    <title>FluffelSkills - Onboarding</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../static/css/onboarding.css">
     <link href="https://cdn.jsdelivr.net/npm/tom-select@2.6.2/dist/css/tom-select.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/tom-select@2.6.2/dist/js/tom-select.complete.min.js"></script>
 </head>
-<body data-invalid-job-message="{{ _('Please choose one of the suggested jobs. Custom entries are not available yet.') }}">
+<body data-invalid-job-message="Bitte wähle einen der vorgeschlagenen Berufe aus der Liste aus! Eigene Eingaben sind aktuell noch nicht freigeschaltet.">
     <nav class="navbar" style="background-color: #081534;">
         <div class="container-fluid">
             <span class="navbar-brand mb-0 h1" style="color: #fff;">FluffelSkills</span>
-            {% include '_language_switcher.html' %}
         </div>
     </nav>
 
     <div class="onboarding-body">
         <div class="onboarding-container">
-            <h2><b>{{ _('Onboarding') }}</b></h2>
+            <h2><b>Onboarding</b></h2>
             
             <!-- 1. Der optische Stepper -->
             <div class="stepper-wrapper">
@@ -40,19 +39,19 @@
                 
                 <!-- SCHRITT 1 -->
                 <div class="form-step active" id="step-1">
-                    <h3>{{ _('Personal details') }}</h3>
-                    <input type="text" name="first_name" placeholder="{{ _('First name') }}" required>
-                    <input type="text" name="last_name" placeholder="{{ _('Last name') }}" required>
-                    <label>{{ _('Date of birth:') }}</label>
+                    <h3>Persönliches</h3>
+                    <input type="text" name="first_name" placeholder="Vorname" required>
+                    <input type="text" name="last_name" placeholder="Nachname" required>
+                    <label>Geburtsdatum:</label>
                     <input type="date" name="birthdate" required>
                 </div>
 
                 <!-- SCHRITT 2 (Hier wurde das Suchfeld integriert) -->
                 <div class="form-step" id="step-2">
-                    <h3>{{ _('Goals and location') }}</h3>
+                    <h3>Ziele und Wohnort</h3>
                     
                     <!-- Suchbares Input-Feld verknüpft mit der datalist -->
-                    <input type="text" name="goal_job" id="goal_job" list="job_liste" placeholder="{{ _('Search for or enter your dream job...') }}" autocomplete="off" required>
+                    <input type="text" name="goal_job" id="goal_job" list="job_liste" placeholder="Traum-Beruf suchen oder eingeben..." autocomplete="off" required>
                     
                     <!-- Dynamische Jobliste aus Flask -->
                     <datalist id="job_liste">
@@ -61,57 +60,57 @@
                         {% endfor %}
                     </datalist>
 
-                    <input type="text" name="country" placeholder="{{ _('Country') }}" required>
-                    <input type="text" name="city" placeholder="{{ _('City') }}" required>
+                    <input type="text" name="country" placeholder="Land" required>
+                    <input type="text" name="city" placeholder="Stadt" required>
                 </div>
 
                 <!-- SCHRITT 3 -->
                 <div class="form-step" id="step-3">
-                    <h3>{{ _('Education, skills, and work experience') }}</h3>
+                    <h3>Abschluss, Fähigkeiten und Berufserfahrung</h3>
                     <select name="diploma" required>
-                        <option value="" disabled selected>{{ _('Choose your qualification') }}</option>
-                        <optgroup label="{{ _('School qualifications') }}">
-                            <option value="no_diploma">{{ _('No qualification') }}</option>
-                            <option value="primary_school">{{ _('Primary school') }}</option>
-                            <option value="secondary_school">{{ _('Secondary school') }}</option>
-                            <option value="intermediate_secondary_school">{{ _('Intermediate secondary school') }}</option>
-                            <option value="high_school_diploma">{{ _('High school diploma') }}</option>
+                        <option value="" disabled selected>Wähle deinen Abschluss</option>
+                        <optgroup label="Schulabschlüsse">
+                            <option value="no_diploma">Kein Abschluss</option>
+                            <option value="primary_school">Grundschule</option>
+                            <option value="secondary_school">Hauptschule</option>
+                            <option value="intermediate_secondary_school">Realschule</option>
+                            <option value="high_school_diploma">Abitur</option>
                         </optgroup>
-                        <optgroup label="{{ _('University qualifications') }}">
+                        <optgroup label="Hochschulabschlüsse">
                             <option value="bachelor">Bachelor</option>
                             <option value="master">Master</option>
-                            <option value="doctorate">{{ _('Doctorate') }}</option>
+                            <option value="doctorate">Promotion</option>
                         </optgroup>
                     </select>
-                    <input type="number" name="grade" placeholder="{{ _('Final grade (or expected final grade)') }}" required>
-                    <select id="auswahl" name="skills" multiple autocomplete="off" placeholder="{{ _('Skills') }}">
+                    <input type="number" name="grade" placeholder="Abschlussnote (oder erwartete Abschlussnote)" required>
+                    <select id="auswahl" name="skills" multiple autocomplete="off" placeholder="Fähigkeiten">
                         {% for skill in skills %}
                             <option value="{{ skill.skill_name }}">{{ skill.skill_name }}</option>
                         {% endfor %}
                     </select>
-                    <textarea name="job_experience" placeholder="{{ _('Work experience (format: role, company, STARTyear-ENDyear); e.g. software developer, TechCorp, 2020-2023') }}"></textarea>
-                    <input type="number" name="time_to_learn" placeholder="{{ _('Learning time per week in hours') }}" required>
+                    <textarea name="job_experience" placeholder="Berufserfahrung (Format: Position/Rolle, Unternehmen, STARTJahr-ENDJahr); z.B.: Softwareentwickler, TechCorp, 2020-2023"></textarea>
+                    <input type="number" name="time_to_learn" placeholder="Zeit zum Lernen pro Woche in Stunden" required>
                     <select name="visibility" required>
-                        <option value="" disabled selected>{{ _('Choose profile visibility') }}</option>
-                        <option value="private">{{ _('Private') }}</option>
-                        <option value="public">{{ _('Public') }}</option>
+                        <option value="" disabled selected>Wähle die Sichtbarkeit des Profils</option>
+                        <option value="private">Privat</option>
+                        <option value="public">Öffentlich</option>
                     </select>
                 </div>
 
                 <!-- Navigations-Buttons -->
                 <div class="btn-container">
-                    <button type="button" class="btn-prev" id="prevBtn" onclick="nextPrev(-1)" style="display:none;">{{ _('Back') }}</button>
-                    <button type="button" class="btn-next" id="nextBtn" onclick="nextPrev(1)">{{ _('Next') }}</button>
+                    <button type="button" class="btn-prev" id="prevBtn" onclick="nextPrev(-1)" style="display:none;">Zurück</button>
+                    <button type="button" class="btn-next" id="nextBtn" onclick="nextPrev(1)">Weiter</button>
                 </div>
             </form>
 
             <!--Schritt 4-->
             <div class="form-complete" id="step-4" hidden>
-                <h3>{{ _('Done!') }}</h3>
-                <p>{{ _('Our AI is now creating your skill profile...') }}</p>
-                <p>{{ _('This usually takes only 15 seconds.') }}</p>
-                <p>{{ _('You will then be redirected to the dashboard automatically.') }}</p>
-                <div class="progress" id="progressBar" role="progressbar" aria-label="Animated striped example" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                <h3>Fertig!</h3>
+                <p>Unsere KI erstellt nun dein Skill-Profil...</p>
+                <p>Meistens dauert das nur 15 Sekunden.</p>
+                <p>Danach wirst du automatisch zum Dashboard weitergeleitet.</p>
+                <div class="progress" id="progressBar" role="progressbar" aria-label="Fortschritt" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
                     <div class="progress-bar progress-bar-striped progress-bar-animated" id="progressBarInner" style="width: 0%"></div>
                 </div>
             </div>

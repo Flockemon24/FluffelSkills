@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ current_language }}">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,16 +25,15 @@
             <div class="collapse navbar-collapse justify-content-end" id="publicProfileNavbar">
                 <ul class="navbar-nav">
                     {% if current_user.is_authenticated %}
-                        <li class="nav-item"><a class="nav-link dashboard-nav-link" href="{{ url_for('dashboard') }}">Dashboard</a></li>
-                        <li class="nav-item"><a class="nav-link dashboard-nav-link" href="{{ url_for('roadmap') }}">Learning</a></li>
-                        <li class="nav-item"><a class="nav-link dashboard-nav-link" href="{{ url_for('profile') }}">My Profile</a></li>
-                        <li class="nav-item"><a class="nav-link dashboard-nav-link" href="{{ url_for('logout') }}">Log out</a></li>
+                        <li class="nav-item"><a class="nav-link dashboard-nav-link" href="{{ url_for('dashboard') }}">Übersicht</a></li>
+                        <li class="nav-item"><a class="nav-link dashboard-nav-link" href="{{ url_for('roadmap') }}">Lernpfad</a></li>
+                        <li class="nav-item"><a class="nav-link dashboard-nav-link" href="{{ url_for('profile') }}">Mein Profil</a></li>
+                        <li class="nav-item"><a class="nav-link dashboard-nav-link" href="{{ url_for('logout') }}">Abmelden</a></li>
                     {% else %}
-                        <li class="nav-item"><a class="nav-link dashboard-nav-link" href="{{ url_for('login') }}">Login</a></li>
-                        <li class="nav-item"><a class="nav-link dashboard-nav-link" href="{{ url_for('register') }}">Create account</a></li>
+                        <li class="nav-item"><a class="nav-link dashboard-nav-link" href="{{ url_for('login') }}">Anmelden</a></li>
+                        <li class="nav-item"><a class="nav-link dashboard-nav-link" href="{{ url_for('register') }}">Konto erstellen</a></li>
                     {% endif %}
                 </ul>
-                {% include '_language_switcher.html' %}
             </div>
         </div>
     </nav>
@@ -43,28 +42,28 @@
         <header class="public-profile-hero">
             <img class="profile-avatar public-avatar" src="{{ avatar_url }}" alt="Profilbild von {{ profile.first_name }} {{ profile.last_name }}" onerror="this.src='{{ url_for('static', filename='images/icon.png') }}'">
             <div class="public-identity">
-                <p class="profile-eyebrow">FLUFFELSKILLS MEMBER</p>
+                <p class="profile-eyebrow">FLUFFELSKILLS-MITGLIED</p>
                 <h1>{{ profile.first_name }} {{ profile.last_name }}</h1>
                 <p class="public-username">@{{ user.username }}</p>
                 <p class="public-goal">{{ profile.goal_job }}</p>
                 {% if profile.job_experience %}<p class="public-bio">{{ profile.job_experience }}</p>{% endif %}
             </div>
-            <a class="profile-create-button" href="{{ url_for('register') }}">Create your FluffelSkills account <span aria-hidden="true">&rarr;</span></a>
+            <a class="profile-create-button" href="{{ url_for('register') }}">Erstelle dein FluffelSkills-Konto <span aria-hidden="true">&rarr;</span></a>
         </header>
 
-        <section class="profile-stats" aria-label="Skill statistics">
-            <div class="profile-stat"><span class="stat-value">{{ skill_points }}</span><span class="stat-label">Skill points</span></div>
-            <div class="profile-stat"><span class="stat-value">{{ skills|length }}</span><span class="stat-label">Skills</span></div>
-            <div class="profile-stat"><span class="stat-value">{{ completed_lesson_count }}</span><span class="stat-label">Lessons completed</span></div>
+        <section class="profile-stats" aria-label="Skill-Statistiken">
+            <div class="profile-stat"><span class="stat-value">{{ skill_points }}</span><span class="stat-label">Skillpunkte</span></div>
+            <div class="profile-stat"><span class="stat-value">{{ skills|length }}</span><span class="stat-label">Fähigkeiten</span></div>
+            <div class="profile-stat"><span class="stat-value">{{ completed_lesson_count }}</span><span class="stat-label">Abgeschlossene Lektionen</span></div>
         </section>
 
         <section class="public-profile-section graph-section">
             <div class="section-heading">
-                <div><p class="profile-eyebrow">CONNECTED KNOWLEDGE</p><h2>SkillGraph</h2></div>
-                <span class="graph-legend"><i></i> Skill level / 100</span>
+                <div><p class="profile-eyebrow">VERKNÜPFTES WISSEN</p><h2>SkillGraph</h2></div>
+                <span class="graph-legend"><i></i> Fähigkeitsstufe / 100</span>
             </div>
             {% if skills %}
-                <svg class="skill-graph" role="img" aria-label="SkillGraph for {{ profile.first_name }}" data-graph="{{ graph|tojson|forceescape }}"></svg>
+                <svg class="skill-graph" role="img" aria-label="SkillGraph für {{ profile.first_name }}" data-graph="{{ graph|tojson|forceescape }}"></svg>
             {% else %}
                 <p class="empty-profile-state">Noch keine Skills zum Anzeigen.</p>
             {% endif %}
@@ -72,7 +71,7 @@
 
         <section class="public-profile-section">
             <div class="section-heading">
-                <div><p class="profile-eyebrow">MEASURED GROWTH</p><h2>Skills &amp; Fortschritt</h2></div>
+                <div><p class="profile-eyebrow">GEMESSENER FORTSCHRITT</p><h2>Fähigkeiten &amp; Fortschritt</h2></div>
                 <span class="section-index">{{ '%02d'|format(skills|length) }}</span>
             </div>
             {% if skills %}
@@ -81,10 +80,10 @@
                         <article class="public-skill-row">
                             <div class="public-skill-heading">
                                 <div><h3>{{ skill.name }}</h3><p>{{ skill.category }}</p></div>
-                                <strong>{{ skill.level }} <small>pts</small></strong>
+                                <strong>{{ skill.level }} <small>Punkte</small></strong>
                             </div>
-                            <div class="skill-meter" role="progressbar" aria-label="{{ skill.name }} skill level" aria-valuenow="{{ skill.level }}" aria-valuemin="0" aria-valuemax="100"><span style="width: {{ skill.level }}%"></span></div>
-                            <div class="lesson-meter-label"><span>Learning progress</span><span>{{ skill.completed_lessons }} / {{ skill.total_lessons }} lessons</span></div>
+                            <div class="skill-meter" role="progressbar" aria-label="Fähigkeitsstufe: {{ skill.name }}" aria-valuenow="{{ skill.level }}" aria-valuemin="0" aria-valuemax="100"><span style="width: {{ skill.level }}%"></span></div>
+                            <div class="lesson-meter-label"><span>Lernfortschritt</span><span>{{ skill.completed_lessons }} / {{ skill.total_lessons }} Lektionen</span></div>
                             <div class="lesson-meter"><span style="width: {{ skill.lesson_progress }}%"></span></div>
                         </article>
                     {% endfor %}
@@ -96,7 +95,7 @@
 
         <section class="public-profile-section showcase-section">
             <div class="section-heading">
-                <div><p class="profile-eyebrow">SELECTED WORK</p><h2>Projekte &amp; Nachweise</h2></div>
+                <div><p class="profile-eyebrow">AUSGEWÄHLTE PROJEKTE</p><h2>Projekte &amp; Nachweise</h2></div>
                 <span class="section-index">{{ '%02d'|format(showcase|length) }}</span>
             </div>
             {% if showcase %}
