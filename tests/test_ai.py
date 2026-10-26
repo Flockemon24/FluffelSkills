@@ -4,15 +4,15 @@ import json
 import sys
 from pprint import pprint
 
-from ai import (
+from app.ai import (
     analyze_evidence_with_ai,
     FluffelSkillsAIError,
     FluffelSkillsConfigurationError,
 )
 
-from skill_engine import build_fluffelskills_profile
+from app.skill_engine import build_fluffelskills_profile
 
-from job_catalog import JOB_PROFILES
+from app.job_catalog import JOB_PROFILES
 
 
 # ============================================================

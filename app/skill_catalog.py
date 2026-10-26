@@ -1,136 +1,7 @@
 SKILL_CATALOG = [
     # --- Programming & Development ---
-    {
-        "skill": "Python", 
-        "category": "Programming",
-        "lessons": [
-            (
-                "Variable erstellen",
-                "Variablen werden in Python mit '=' erstellt. Ein Datentyp muss normalerweise nicht angegeben werden. Beispiel: 'grade = 'A''",
-                "Erstelle die Variable 'age' und speichere den Wert 13 darin.",
-                "age = 13"
-            ),
-            (
-                "String speichern",
-                "Texte werden in Python normalerweise in einfachen oder doppelten Anführungszeichen gespeichert.",
-                "Erstelle die Variable 'name' und speichere darin den Text 'John'.",
-                "name = 'John'"
-            ),
-            (
-                "Liste erstellen",
-                "Listen speichern mehrere Werte. Sie werden mit eckigen Klammern erstellt. Beispiel: 'numbers = [1, 2, 2, 3]'",
-                "Definiere die Liste 'cars' mit den Einträgen 'Ford', 'BMW' und 'Tesla'.",
-                "cars = ['Ford', 'BMW', 'Tesla']"
-            ),
-            (
-                "Auf Listenelement zugreifen",
-                "Python verwendet bei Listen einen nullbasierten Index. Das erste Element hat also den Index 0. Man schreibt also für den dritten Listeneintrag: 'list[2]'",
-                "Greife auf das zweite Element der Liste 'cars' zu.",
-                "cars[1]"
-            ),
-            (
-                "if-Bedingung",
-                "Mit if kann Code nur ausgeführt werden, wenn eine Bedingung wahr ist. Man schreibt: 'if number == 2:'",
-                "Schreibe eine if-Bedingung, die prüft, ob 'age' mindestens 18 ist.",
-                "if age >= 18:"
-            ),
-            (
-                "for-Schleife",
-                "Mit einer for-Schleife kannst du alle Elemente einer Liste nacheinander verarbeiten. Man schreibt zum Beispiel: 'for number in numbers:'",
-                "Schreibe eine for-Schleife, die jedes Element aus 'cars' in der Variable 'car' durchläuft.",
-                "for car in cars:"
-            ),
-            (
-                "Funktion definieren",
-                "Eigene Funktionen werden mit 'def' definiert. Dahinter schreibt man den Namen der Funktion und Klammern. Beispiel: 'def test():'",
-                "Erstelle eine Funktion 'greet', die den Text 'Hello!' ausgibt.",
-                "def greet():"
-            ),
-            (
-                "Funktion mit Parameter",
-                "Funktionen können Parameter erhalten, die beim Aufruf übergeben werden. Diese schreibt man in die Klammern hinter dem Funktionsnamen.",
-                "Erstelle eine Funktion 'greet', die den Parameter 'name' erhält.",
-                "def greet(name):"
-            ),
-            (
-                "Dictionary erstellen",
-                "Dictionaries speichern Daten als Schlüssel-Wert-Paare. Man schreibt sie in geschweifte Klammern. zwischen Schlüssel und Wert schreibt man einen Doppelpunkt, zwischen zwei verschiedene Paare ein Komma. Beispiel: 'product = {'name': 'Ice', 'price': '20'}'",
-                "Erstelle ein Dictionary 'user' mit dem Namen 'John' und dem Alter 13.",
-                "user = {'name': 'John', 'age': 13}"
-            ),
-            (
-                "Liste erweitern",
-                "Mit .append() kannst du ein neues Element am Ende einer Liste hinzufügen. Beispiel: numbers.append(4)",
-                "Füge 'Audi' am Ende der Liste 'cars' hinzu.",
-                "cars.append('Audi')"
-            )
-        ]
-    },
-    {
-        "skill": "JavaScript", 
-        "category": "Programming",
-        "lessons": [(
-            "Variable mit const",
-            "Mit 'const' erstellte Variablen können nicht neu zugewiesen werden. Man schreibt zum Beispiel: 'const number = 1'",
-            "Erstelle eine Konstante 'age' mit dem Wert 13.",
-            "const age = 13;"
-            ),
-            (
-                "Variable mit let",
-                "let wird für Variablen verwendet, deren Wert später geändert werden kann. Man schreibt zum Beispiel: 'let user = 'John''",
-                "Erstelle eine Variable 'score' mit dem Wert 0.",
-                "let score = 0;"
-            ),
-            (
-                "Text speichern",
-                "Strings können in JavaScript zum Beispiel in einfachen oder doppelten Anführungszeichen stehen.",
-                "Speichere 'FluffelSkills' in der Variable 'appName'.",
-                "const appName = 'FluffelSkills';"
-            ),
-            (
-                "Ausgabe in der Konsole",
-                "console.log() gibt Werte in der Entwicklerkonsole aus. Das was ausgegeben werden soll schreibt man in die Klammern nach der Funktion.",
-                "Gib den Text 'Hello World' in der Konsole aus.",
-                "console.log('Hello World');"
-            ),
-            (
-                "Array erstellen",
-                "Arrays speichern mehrere Werte in einer geordneten Sammlung. Man speichert diese in eckigen Klammern. Beispiel: 'const numbers = [1, 2, 2, 3]'",
-                "Erstelle ein Array 'cars' mit 'Ford', 'BMW' und 'Tesla'.",
-                "const cars = ['Ford', 'BMW', 'Tesla'];"
-            ),
-            (
-                "Array erweitern",
-                "Mit push() wird ein neues Element am Ende eines Arrays hinzugefügt. Beispiel: 'numbers.push(4)'",
-                "Füge 'Audi' zum Array 'cars' hinzu.",
-                "cars.push('Audi');"
-            ),
-            (
-                "if-Bedingung",
-                "Mit if wird Code abhängig von einer Bedingung ausgeführt. DIe Bedingung wird in Klammern geschrieben. Den Code der ausgeführt werden soll, schreibt man in geschweifte Klammern: 'if (user == 'John') {'",
-                "Prüfe, ob die Variable 'age' mindestens 18 ist.",
-                "if (age >= 18) {"
-            ),
-            (
-                "Objekt erstellen",
-                "Objekte speichern Eigenschaften als Schlüssel-Wert-Paare. Man schreibt sie in geschweifte Klammern. zwischen Schlüssel und Wert schreibt man einen Doppelpunkt, zwischen zwei verschiedene Paare ein Komma. Beispiel: 'const product = {'name': 'Ice', 'price': '20'}'",
-                "Erstelle ein Objekt 'user' mit name='John' und age=13.",
-                "const user = { name: 'John', age: 13 };"
-            ),
-            (
-                "Funktion erstellen",
-                "Mit function kannst du klassische JavaScript-Funktionen definieren. Dahinter kommt in geschweifte Klammern der Code der Ausgeführt werden soll. Beispiel: 'function addOneToList() { list.append(1) }'",
-                "Erstelle eine Funktion 'greet', die 'Hello!' ausgibt.",
-                "function greet() { console.log('Hello!'); }"
-            ),
-            (
-                "Event Listener",
-                ".addEventListener() verbindet ein Ereignis mit einer Funktion. Das triggernde Ereignis schreibt man davor. Dinhter schreibt man in Klammern bei welchem Ereignis, was passieren soll. Beispiel: 'objekt.addEventListener('ereignis', handleEreignis);'",
-                "Führe bei einem Klick auf das Element 'button' die Funktion 'handleClick' aus.",
-                "button.addEventListener('click', handleClick);"
-            )
-        ]
-    },
+    {"skill": "Python", "category": "Programming"},
+    {"skill": "JavaScript", "category": "Programming"},
     {"skill": "HTML & CSS", "category": "Programming"},
     {"skill": "Basic HTML/CSS", "category": "Programming"},
     {"skill": "Python (Basics)", "category": "Programming"},
@@ -141,13 +12,7 @@ SKILL_CATALOG = [
     {"skill": "Machine Learning", "category": "Data & AI"},
     {"skill": "Deep Learning", "category": "Data & AI"},
     {"skill": "Model Evaluation", "category": "Data & AI"},
-    {
-        "skill": "SQL", 
-        "category": "Data & AI",
-        "lessons": [
-            ("Daten abfragen mit SELECT", "Mit dem Befehl 'SELECT spalten_name FROM tabellen_name' holst du Daten aus deiner Datenbank.", "Wie liest man die Daten aus der Tabelle 'clients' und der Spalte 'name' aus?", "SELECT name FROM clients")
-        ]
-    },
+    {"skill": "SQL", "category": "Data & AI"},
     {"skill": "Data Visualization", "category": "Data & AI"},
     {"skill": "ETL Pipelines", "category": "Data & AI"},
     {"skill": "Big Data (Spark/Hadoop)", "category": "Data & AI"},
@@ -157,13 +22,7 @@ SKILL_CATALOG = [
     {"skill": "Data Interpretation", "category": "Data & AI"},
     
     # --- Engineering & Infrastructure ---
-    {
-        "skill": "Git", 
-        "category": "Engineering Tools",
-        "lessons": [
-            ("Repository klonen", r"Mit 'git clone https://github.com/{USERNAME}/{REPOSITORY_NAME}' kopierst du ein bestehendes Projekt von GitHub auf deinen eigenen Computer.", "Wie klonst du das Repo 'Flask-Dashboard' von 'John123'?", "git clone https://github.com/John123/Flask-Dashboard")
-        ]
-    },
+    {"skill": "Git", "category": "Engineering Tools"},
     {"skill": "Cloud Deployment", "category": "Infrastructure"},
     {"skill": "API Development", "category": "Engineering Tools"},
     {"skill": "API Consumption", "category": "Engineering Tools"},
@@ -176,13 +35,7 @@ SKILL_CATALOG = [
     {"skill": "Stakeholder Management", "category": "Product Management"},
     {"skill": "Product Strategy", "category": "Product Management"},
     {"skill": "Technical Basics", "category": "Product Management"},
-    {
-        "skill": "Figma / Adobe XD", 
-        "category": "Design",
-        "lessons": [
-            ("Komponenten (Components)", "In Figma kannst du UI-Elemente (wie Buttons) in 'Components' verwandeln, um sie überall wiederzuverwenden. Ändert man das Haupt-Element, ändern sich alle Kopien automatisch.", "Wie nennt man wiederverwendbare UI-Bausteine in Figma?", "Component")
-        ]
-    },
+    {"skill": "Figma / Adobe XD", "category": "Design"},
     {"skill": "User Research", "category": "Design"},
     {"skill": "Wireframing & Prototyping", "category": "Design"},
     {"skill": "Design Systems", "category": "Design"},

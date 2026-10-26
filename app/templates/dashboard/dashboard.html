@@ -13,7 +13,7 @@
 
     <nav class="navbar navbar-expand-lg dashboard-navbar fixed-top">
         <div class="container">
-            <a class="navbar-brand dashboard-brand" href="{{ url_for('dashboard') }}">
+            <a class="navbar-brand dashboard-brand" href="{{ url_for('dashboard.dashboard') }}">
                 <img src="../static/images/icon.png" alt="Logo" width="45" height="45">
                 FLUFFELSKILLS
             </a>
@@ -23,16 +23,16 @@
             <div class="collapse navbar-collapse justify-content-end" id="dashboardNavbar">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link dashboard-nav-link active" href="{{ url_for('dashboard') }}">Übersicht</a>
+                        <a class="nav-link dashboard-nav-link active" href="{{ url_for('dashboard.dashboard') }}">Übersicht</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link dashboard-nav-link" href="{{ url_for('roadmap') }}">Lernpfad</a>
+                        <a class="nav-link dashboard-nav-link" href="{{ url_for('dashboard.roadmap') }}">Lernpfad</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link dashboard-nav-link" href="{{ url_for('profile') }}">Profil</a>
+                        <a class="nav-link dashboard-nav-link" href="{{ url_for('dashboard.profile') }}">Profil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link dashboard-nav-link" href="{{ url_for('logout') }}">Logout</a>
+                        <a class="nav-link dashboard-nav-link" href="{{ url_for('auth.logout') }}">Logout</a>
                     </li>
                 </ul>
             </div>
@@ -42,7 +42,7 @@
     <section class="missing-skills">
         <div class="container">
             <h1 class="greeting-text">Willkommen zurück, {{ name }}!</h1>
-            <h3 class="text text-job">Dein Traumberuf: {{ job }}</h3>
+            <h3 class="text text-job">Dein Traumberuf: {{ goal_job }}</h3>
             
             <h4 class="text text-headline">Fehlende Skills für dein Ziel:</h4>
             

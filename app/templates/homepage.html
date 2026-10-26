@@ -19,7 +19,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-custom fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand notranslate" href="#">
                 <img src="../static/images/icon.png" alt="Logo" width="45" height="45" class="d-inline-block align-text-top">
                 FLUFFELSKILLS
             </a>
@@ -28,9 +28,9 @@
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link nav-link-custom" href="{{ url_for('pricing') }}">Preise</a></li>
-                    <li class="nav-item"><a class="nav-link nav-link-custom" href="{{ url_for('login') }}">Anmelden</a></li>
-                    <li class="nav-item"><a class="nav-link nav-link-custom" href="{{ url_for('register') }}">Registrieren</a></li>
+                    <li class="nav-item"><a class="nav-link nav-link-custom" href="{{ url_for('core.pricing') }}">Preise</a></li>
+                    <li class="nav-item"><a class="nav-link nav-link-custom" href="{{ url_for('auth.login') }}">Anmelden</a></li>
+                    <li class="nav-item"><a class="nav-link nav-link-custom" href="{{ url_for('auth.register') }}">Registrieren</a></li>
                 </ul>
             </div>
         </div>
@@ -38,7 +38,7 @@
 
     <section class="hero">
         <div class="hero-content">
-            <h1 class="hero-title">FLUFFELSKILLS</h1>
+            <h1 class="hero-title notranslate">FLUFFELSKILLS</h1>
 
             <p class="hero-subtitle">
                 Zeig, was du kannst! <br>
@@ -51,11 +51,11 @@
             </p>
 
             <div>
-                <a href="{{ url_for('register') }}" class="btn btn-primary-glow">
+                <a href="{{ url_for('auth.register') }}" class="btn btn-primary-glow">
                     Skill-Profil kostenlos erstellen
                 </a>
 
-                <a href="{{ url_for('login') }}" class="btn btn-secondary-glow">
+                <a href="{{ url_for('auth.login') }}" class="btn btn-secondary-glow">
                     Anmelden
                 </a>
             </div>
@@ -127,13 +127,13 @@
         <div class="container">
 
             <h2 class="section-title">
-                Über FluffelSkills
+                Über  <strong class="notranslate">FluffelSkills</strong>
             </h2>
 
 
             <p class="about-text">
 
-                FluffelSkills verändert, wie Menschen ihre Fähigkeiten präsentieren. Nicht nur Noten, Zertifikate oder Lebensläufe zählen, sondern echte Kompetenzen. Unsere KI verknüpft Erfahrungen, Projekte, Prüfungen und Nachweise zu einem lebendigen digitalen Kompetenzprofil. Entdecke, erweitere und präsentiere damit deine Fähigkeiten weltweit.
+                <strong class="notranslate">FluffelSkills</strong>  verändert, wie Menschen ihre Fähigkeiten präsentieren. Nicht nur Noten, Zertifikate oder Lebensläufe zählen, sondern echte Kompetenzen. Unsere KI verknüpft Erfahrungen, Projekte, Prüfungen und Nachweise zu einem lebendigen digitalen Kompetenzprofil. Entdecke, erweitere und präsentiere damit deine Fähigkeiten weltweit.
 
             </p>
 
@@ -162,13 +162,13 @@
 
 
                     <p class="developer-role">
-                    Gründer und Entwickler von FluffelSkills
+                    Gründer und Entwickler von  <strong class="notranslate">FluffelSkills</strong> 
                     </p>
 
 
                     <p class="developer-bio">
 
-                        Florian entwickelt FluffelSkills mit der Vision, Menschen eine neue Möglichkeit zu geben, ihre echten Fähigkeiten sichtbar zu machen. Die Plattform verbindet KI, Bildung und Karriere zu einem intelligenten Skill-System der Zukunft.
+                        Florian entwickelt  <strong class="notranslate">FluffelSkills</strong>  mit der Vision, Menschen eine neue Möglichkeit zu geben, ihre echten Fähigkeiten sichtbar zu machen. Die Plattform verbindet KI, Bildung und Karriere zu einem intelligenten Skill-System der Zukunft.
 
                     </p>
 
@@ -193,10 +193,14 @@
         <div class="container">
 
             <p class="footer-text">
-                © 2026 FluffelSkills - Der digitale Skill-Pass der Zukunft
+                © 2026  <strong class="notranslate">FluffelSkills</strong>  - Der digitale Skill-Pass der Zukunft
             </p>
 
         </div>
     </footer>
+
+    <div class="gtranslate_wrapper"></div>
+    <script>window.gtranslateSettings = {"default_language":"de","native_language_names":true,"detect_browser_language":true,"languages":["de","en"],"wrapper_selector":".gtranslate_wrapper","switcher_horizontal_position":"right","switcher_vertical_position":"top","float_switcher_open_direction":"bottom","alt_flags":{"en":"usa"}}</script>
+    <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
 </body>
 </html>

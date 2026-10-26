@@ -15,7 +15,7 @@
 
     <nav class="navbar navbar-expand-lg dashboard-navbar fixed-top">
         <div class="container">
-            <a class="navbar-brand dashboard-brand" href="{% if current_user.is_authenticated %}{{ url_for('dashboard') }}{% else %}{{ url_for('home_page') }}{% endif %}">
+            <a class="navbar-brand dashboard-brand" href="{% if current_user.is_authenticated %}{{ url_for('dashboard.dashboard') }}{% else %}{{ url_for('core.home_page') }}{% endif %}">
                 <img src="{{ url_for('static', filename='images/icon.png') }}" alt="Logo" width="45" height="45">
                 FLUFFELSKILLS
             </a>
@@ -25,13 +25,13 @@
             <div class="collapse navbar-collapse justify-content-end" id="publicProfileNavbar">
                 <ul class="navbar-nav">
                     {% if current_user.is_authenticated %}
-                        <li class="nav-item"><a class="nav-link dashboard-nav-link" href="{{ url_for('dashboard') }}">Übersicht</a></li>
-                        <li class="nav-item"><a class="nav-link dashboard-nav-link" href="{{ url_for('roadmap') }}">Lernpfad</a></li>
-                        <li class="nav-item"><a class="nav-link dashboard-nav-link" href="{{ url_for('profile') }}">Mein Profil</a></li>
-                        <li class="nav-item"><a class="nav-link dashboard-nav-link" href="{{ url_for('logout') }}">Abmelden</a></li>
+                        <li class="nav-item"><a class="nav-link dashboard-nav-link" href="{{ url_for('dashboard.dashboard') }}">Übersicht</a></li>
+                        <li class="nav-item"><a class="nav-link dashboard-nav-link" href="{{ url_for('dashboard.roadmap') }}">Lernpfad</a></li>
+                        <li class="nav-item"><a class="nav-link dashboard-nav-link" href="{{ url_for('dashboard.profile') }}">Mein Profil</a></li>
+                        <li class="nav-item"><a class="nav-link dashboard-nav-link" href="{{ url_for('auth.logout') }}">Abmelden</a></li>
                     {% else %}
-                        <li class="nav-item"><a class="nav-link dashboard-nav-link" href="{{ url_for('login') }}">Anmelden</a></li>
-                        <li class="nav-item"><a class="nav-link dashboard-nav-link" href="{{ url_for('register') }}">Konto erstellen</a></li>
+                        <li class="nav-item"><a class="nav-link dashboard-nav-link" href="{{ url_for('auth.login') }}">Anmelden</a></li>
+                        <li class="nav-item"><a class="nav-link dashboard-nav-link" href="{{ url_for('auth.register') }}">Konto erstellen</a></li>
                     {% endif %}
                 </ul>
             </div>
@@ -48,7 +48,7 @@
                 <p class="public-goal">{{ profile.goal_job }}</p>
                 {% if profile.job_experience %}<p class="public-bio">{{ profile.job_experience }}</p>{% endif %}
             </div>
-            <a class="profile-create-button" href="{{ url_for('register') }}">Erstelle dein FluffelSkills-Konto <span aria-hidden="true">&rarr;</span></a>
+            <a class="profile-create-button" href="{{ url_for('auth.register') }}">Erstelle dein FluffelSkills-Konto <span aria-hidden="true">&rarr;</span></a>
         </header>
 
         <section class="profile-stats" aria-label="Skill-Statistiken">

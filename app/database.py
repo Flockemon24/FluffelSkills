@@ -1,8 +1,8 @@
 from datetime import datetime, timezone
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import UserMixin
-from job_catalog import JOB_PROFILES
-from skill_catalog import SKILL_CATALOG
+from app.job_catalog import JOB_PROFILES
+from app.skill_catalog import SKILL_CATALOG
 
 # Zentrales SQLAlchemy-Objekt initialisieren
 db = SQLAlchemy()

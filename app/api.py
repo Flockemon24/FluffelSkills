@@ -1,16 +1,37 @@
+import os
 import secrets
 import time
 from functools import wraps
+
 from flask import Blueprint, jsonify, request, Response
 import redis
-import database as db
+
+import app.database as db
 
 # Erstellt den API-Blueprint (Zentraler Präfix: /api/v1)
 api_bp = Blueprint('api_v1', __name__, url_prefix='/api/v1')
 
-# Verbindung zu lokalem Redis aufbauen
-# Im Live-Betrieb (Produktion) die Verbindungsdaten ggf. anpassen
-r = redis.Redis(host='localhost', port=6379, db=0, decode_responses=True)
+
+def get_redis_client():
+    """Create a Redis client lazily so imports do not block on a missing Redis instance."""
+    redis_url = os.getenv("REDIS_URL")
+    if redis_url:
+        try:
+            client = redis.Redis.from_url(redis_url, decode_responses=True, socket_connect_timeout=1, socket_timeout=1)
+            client.ping()
+            return client
+        except redis.exceptions.RedisError:
+            return None
+
+    try:
+        client = redis.Redis(host='localhost', port=6379, db=0, decode_responses=True, socket_connect_timeout=1, socket_timeout=1)
+        client.ping()
+        return client
+    except redis.exceptions.RedisError:
+        return None
+
+
+r = get_redis_client()
 
 def require_api_token(f):
     """
